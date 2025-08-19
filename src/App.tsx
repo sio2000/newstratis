@@ -25,7 +25,7 @@ function App() {
       <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
         <div className="text-center">
           <div className="w-16 h-16 border-2 border-gold border-t-transparent rounded-full animate-spin mb-4 mx-auto"></div>
-          <h2 className="text-gold text-xl font-serif">Φόρτωση Πολυτελών Κοσμημάτων...</h2>
+          <h2 className="text-gold text-xl font-serif">Φόρτωση Stratis Fine Jewels...</h2>
         </div>
       </div>
     );

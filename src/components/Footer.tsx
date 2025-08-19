@@ -1,6 +1,7 @@
 import React from 'react';
-import { Crown, Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../assets/Logo.png';
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -19,10 +20,10 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <Crown className="h-10 w-10 text-gold" />
+              <img src={logo} alt="Stratis Fine Jewels" className="h-20 w-20 object-contain" />
               <div>
-                <h3 className="text-2xl font-serif font-bold text-gold">ΑΥΡΑ</h3>
-                <p className="text-sm text-white/60">Luxury Jewelry</p>
+                <h3 className="text-2xl font-serif font-bold text-gold">Stratis Fine Jewels</h3>
+                <p className="text-sm text-white/60">Luxury it's in purest form</p>
               </div>
             </div>
             <p className="text-white/80 leading-relaxed">
@@ -116,7 +117,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gold/20 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-center md:text-left">
-              © 2024 ΑΥΡΑ Luxury Jewelry. {t('footer.rights')}
+              © 2024 Stratis Fine Jewels. {t('footer.rights')}
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-white/60 hover:text-gold transition-colors">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Crown, Globe } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '../assets/Logo.png';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,10 +37,10 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
-            <Crown className="h-8 w-8 text-gold" />
+            <img src={logo} alt="Stratis Fine Jewels" className="h-16 w-16 object-contain" />
             <div>
-              <h1 className="text-xl font-serif font-bold text-gold">ΑΥΡΑ</h1>
-              <p className="text-xs text-white/70 -mt-1">Luxury Jewelry</p>
+              <h1 className="text-xl font-serif font-bold text-gold">Stratis Fine Jewels</h1>
+              <p className="text-xs text-white/70 -mt-1">Luxury it's in purest form</p>
             </div>
           </div>
 

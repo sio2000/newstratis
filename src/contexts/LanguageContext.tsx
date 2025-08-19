@@ -68,7 +68,7 @@ const translations = {
 
     // Footer
     'footer.about': 'Σχετικά με Εμάς',
-    'footer.aboutText': 'Ένα οικογενειακό κοσμηματοπωλείο με παράδοση τριών δεκαετιών στη δημιουργία εξαιρετικών κοσμημάτων.',
+    'footer.aboutText': 'Ένα οικογενειακό κοσμηματοπωλείο με παράδοση τριών δεκαετιών στη δημιουργία εξαιρετικών κοσμημάτων από τη Stratis Fine Jewels.',
     'footer.quickLinks': 'Γρήγοροι Σύνδεσμοι',
     'footer.followUs': 'Ακολουθήστε μας',
     'footer.rights': 'Όλα τα δικαιώματα κατοχυρωμένα.'
@@ -132,7 +132,7 @@ const translations = {
 
     // Footer
     'footer.about': 'About Us',
-    'footer.aboutText': 'A family jewelry store with three decades of tradition in creating exceptional jewelry pieces.',
+    'footer.aboutText': 'A family jewelry store with three decades of tradition in creating exceptional jewelry pieces by Stratis Fine Jewels.',
     'footer.quickLinks': 'Quick Links',
     'footer.followUs': 'Follow Us',
     'footer.rights': 'All rights reserved.'
