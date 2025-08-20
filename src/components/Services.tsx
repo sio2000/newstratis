@@ -11,19 +11,19 @@ const Services: React.FC = () => {
       icon: Wrench,
       title: t('services.repair.title'),
       description: t('services.repair.desc'),
-      image: 'https://images.pexels.com/photos/6291309/pexels-photo-6291309.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: '/src/assets/jewellery.jpg'
     },
     {
       icon: Settings,
       title: t('services.correction.title'),
       description: t('services.correction.desc'),
-      image: 'https://images.pexels.com/photos/6291307/pexels-photo-6291307.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: '/src/assets/jewelleryservice.jpg'
     },
     {
       icon: Sparkles,
       title: t('services.polishing.title'),
       description: t('services.polishing.desc'),
-      image: 'https://images.pexels.com/photos/6291290/pexels-photo-6291290.jpeg?auto=compress&cs=tinysrgb&w=500'
+      image: '/src/assets/milling.jpg'
     }
   ];
 
@@ -44,11 +44,15 @@ const Services: React.FC = () => {
           <div className="section-divider"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 [&>*]:!ring-gold [&>*]:!ring-opacity-30">
           {services.map((service, index) => (
             <div
               key={index}
-              className="glass-effect rounded-lg overflow-hidden hover-glow group"
+              className={`glass-effect rounded-lg overflow-hidden hover-glow group ${
+                service.title === t('services.polishing.title') 
+                  ? 'ring-4 ring-gold ring-opacity-70 shadow-2xl shadow-gold/30 transform hover:scale-105 bg-gradient-to-br from-black via-black to-black border-2 border-gold/40' 
+                  : 'ring-2 ring-gold ring-opacity-60 shadow-lg shadow-gold/30 transform hover:scale-102 bg-gradient-to-br from-black via-black to-black border-2 border-gold/40'
+              }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="relative h-64 overflow-hidden">
@@ -63,12 +67,46 @@ const Services: React.FC = () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-serif font-bold mb-4 text-gold">
-                  {service.title}
-                </h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-2xl font-serif font-bold text-gold">
+                    {service.title}
+                  </h3>
+                  {service.title === t('services.polishing.title') && (
+                    <span className="bg-gradient-to-r from-gold via-yellow-300 to-gold text-black px-4 py-2 rounded-full text-sm font-bold shadow-2xl shadow-gold/50 animate-bounce border-2 border-white/20">
+                      🎁 ΔΩΡΕΑΝ 🎁
+                    </span>
+                  )}
+                  {service.title === t('services.repair.title') && (
+                    <span className="bg-gradient-to-r from-gold to-gold-light text-white px-3 py-1 rounded-full text-xs font-bold shadow-md border border-gold/30">
+                      🔧 ΕΠΙΣΚΕΥΗ
+                    </span>
+                  )}
+                  {service.title === t('services.correction.title') && (
+                    <span className="bg-gradient-to-r from-gold to-gold-light text-white px-3 py-1 rounded-full text-xs font-bold shadow-md border border-gold/30">
+                      ⚙️ ΔΙΟΡΘΩΣΗ
+                    </span>
+                  )}
+                </div>
                 <p className="text-white/80 text-lg leading-relaxed">
                   {service.description}
                 </p>
+                {service.title === t('services.polishing.title') && (
+                  <div className="mt-4 p-4 bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20 border-2 border-gold/30 rounded-xl shadow-lg shadow-gold/20">
+                    <div className="text-center space-y-2">
+                      <p className="text-gold text-lg font-bold">
+                        ✨ Εξαιρετική Προσφορά ✨
+                      </p>
+                      <p className="text-gold/90 text-sm">
+                        Για τα κοσμήματά σας
+                      </p>
+                      <div className="flex justify-center space-x-2">
+                        <span className="text-gold text-xs">💎</span>
+                        <span className="text-gold text-xs">⭐</span>
+                        <span className="text-gold text-xs">💎</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}

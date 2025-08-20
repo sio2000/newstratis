@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import HeroSection from './components/HeroSection';
 import ProductGallery from './components/ProductGallery';
 import Services from './components/Services';
 import Certifications from './components/Certifications';
@@ -35,7 +35,7 @@ function App() {
     <LanguageProvider>
       <div className="App">
         <Header />
-        <Hero />
+        <HeroSection />
         <ProductGallery />
         <Services />
         <Certifications />

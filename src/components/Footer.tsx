@@ -105,9 +105,7 @@ const Footer: React.FC = () => {
                 <span className="text-white/80">info@aurajewelry.gr</span>
               </div>
               <div className="text-white/80">
-                <p>Ερμού 45</p>
-                <p>Θεσσαλονίκη 54623</p>
-                <p>Ελλάδα</p>
+                <p>Θεσσαλονίκη</p>
               </div>
             </div>
           </div>

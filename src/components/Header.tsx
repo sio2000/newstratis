@@ -25,6 +25,11 @@ const Header: React.FC = () => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   const toggleLanguage = () => {
     setLanguage(language === 'el' ? 'en' : 'el');
   };
@@ -36,7 +41,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={scrollToTop}>
             <img src={logo} alt="Stratis Fine Jewels" className="h-16 w-16 object-contain" />
             <div>
               <h1 className="text-xl font-serif font-bold text-gold">Stratis Fine Jewels</h1>
@@ -46,9 +51,6 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <a onClick={() => scrollToSection('hero')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
-              {t('nav.home')}
-            </a>
             <a onClick={() => scrollToSection('gold')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.gold')}
             </a>
@@ -92,9 +94,6 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-gold/20">
             <nav className="flex flex-col py-4">
-              <a onClick={() => scrollToSection('hero')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
-                {t('nav.home')}
-              </a>
               <a onClick={() => scrollToSection('gold')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.gold')}
               </a>

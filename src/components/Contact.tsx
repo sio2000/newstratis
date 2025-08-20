@@ -47,8 +47,7 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-white mb-1">{t('contact.address')}</h4>
                     <p className="text-white/80">
-                      Ερμού 45, Θεσσαλονίκη 54623<br />
-                      Ελλάδα
+                      Θεσσαλονίκη
                     </p>
                   </div>
                 </div>
@@ -94,7 +93,7 @@ const Contact: React.FC = () => {
               <div className="text-center">
                 <MapPin className="h-16 w-16 text-gold mx-auto mb-4" />
                 <p className="text-white/60">Διαδραστικός Χάρτης</p>
-                <p className="text-sm text-white/40">Ερμού 45, Θεσσαλονίκη</p>
+                <p className="text-sm text-white/40">Θεσσαλονίκη</p>
               </div>
             </div>
           </div>

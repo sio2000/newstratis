@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Award, CheckCircle } from 'lucide-react';
+import { Shield, Award, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Certifications: React.FC = () => {
@@ -21,11 +21,11 @@ const Certifications: React.FC = () => {
       color: 'from-gray-300 to-gray-500'
     },
     {
-      icon: CheckCircle,
+      icon: Clock,
       title: t('cert.watch.title'),
       description: t('cert.watch.desc'),
       badge: '2 ΕΤΗ',
-      color: 'from-gold to-gold-light'
+      color: 'from-gold via-yellow-300 to-gold-light'
     }
   ];
 
@@ -48,7 +48,7 @@ const Certifications: React.FC = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Badge */}
-              <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gradient-to-r ${cert.color} text-black font-bold rounded-full text-sm`}>
+              <div className={`absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gradient-to-r ${cert.color} ${cert.badge === '2 ΕΤΗ' ? 'text-white' : 'text-black'} font-bold rounded-full text-sm shadow-lg`}>
                 {cert.badge}
               </div>
 
