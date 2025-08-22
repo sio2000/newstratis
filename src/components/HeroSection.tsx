@@ -88,52 +88,52 @@ const HeroSection = () => {
 
 
 
-             {/* Hero Content */}
-       <div className="relative z-20 h-full flex items-center">
-         <div className="w-full px-4 sm:px-6 lg:px-8">
-           <div className="max-w-4xl mx-auto">
-             <motion.div
-               key={currentSlide}
-               initial={{ opacity: 0, y: 50 }}
-               animate={{ opacity: 1, y: 0 }}
-               exit={{ opacity: 0, y: -50 }}
-               transition={{ duration: 1, ease: "easeOut" }}
-               className="space-y-4 md:space-y-6 text-center md:text-left"
-             >
-               {/* Main Headline */}
-               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-serif font-bold text-white leading-tight px-2 md:px-0">
-                 {language === 'en' ? currentSlideData?.titleEn : currentSlideData?.titleGr}
-               </h1>
+                           {/* Hero Content */}
+        <div className="relative z-20 h-full flex items-center">
+          <div className="w-full px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="space-y-6"
+              >
+                {/* Main Headline */}
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight">
+                  {language === 'en' ? currentSlideData?.titleEn : currentSlideData?.titleGr}
+                </h1>
 
-               {/* Subtitle */}
-               <p className="text-lg sm:text-xl md:text-2xl text-white/90 font-light max-w-2xl leading-relaxed mx-auto md:mx-0 px-4 md:px-0">
-                 {language === 'en' ? currentSlideData?.subtitleEn : currentSlideData?.subtitleGr}
-               </p>
+                {/* Subtitle */}
+                <p className="text-xl lg:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
+                  {language === 'en' ? currentSlideData?.subtitleEn : currentSlideData?.subtitleGr}
+                </p>
 
-               {/* CTA Buttons */}
-               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-6 md:pt-8 px-4 md:px-0">
-                 <Button
-                   variant="default"
-                   size="lg"
-                   onClick={() => handleCTAClick(currentSlideData?.id)}
-                   iconName="ArrowRight"
-                   iconPosition="right"
-                   className="bg-gradient-to-r from-gold to-gold-light text-white font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-                 >
-                   {language === 'en' ? currentSlideData?.ctaEn : currentSlideData?.ctaGr}
-                 </Button>
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 pt-8">
+                  <Button
+                    variant="default"
+                    size="lg"
+                    onClick={() => handleCTAClick(currentSlideData?.id)}
+                    iconName="ArrowRight"
+                    iconPosition="right"
+                    className="bg-gradient-to-r from-gold to-gold-light text-white font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  >
+                    {language === 'en' ? currentSlideData?.ctaEn : currentSlideData?.ctaGr}
+                  </Button>
 
-                 <Button
-                   variant="outline"
-                   size="lg"
-                   onClick={() => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' })}
-                   iconName="BookOpen"
-                   iconPosition="left"
-                   className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm w-full sm:w-auto"
-                 >
-                   {language === 'en' ? 'Our Heritage' : 'Η Κληρονομιά μας'}
-                 </Button>
-               </div>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' })}
+                    iconName="BookOpen"
+                    iconPosition="left"
+                    className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                  >
+                    {language === 'en' ? 'Our Heritage' : 'Η Κληρονομιά μας'}
+                  </Button>
+                </div>
 
               {/* Trust Indicators */}
               <div className="hidden md:flex items-center space-x-8 pt-8">
@@ -162,13 +162,13 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-        <div className="flex space-x-2 md:space-x-3">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+        <div className="flex space-x-3">
           {heroSlides?.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
                   ? 'bg-gold shadow-lg'
                   : 'bg-white/30 hover:bg-white/50'
@@ -180,12 +180,12 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-4 md:bottom-8 right-4 md:right-8 z-30"
+        className="absolute bottom-8 right-8 z-30"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="flex flex-col items-center text-white/60">
-          <Icon name="ChevronDown" size={16} className="md:w-5 md:h-5" />
+          <Icon name="ChevronDown" size={20} />
         </div>
       </motion.div>
     </section>
