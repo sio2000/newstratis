@@ -32,7 +32,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
       const subject = `Παραγγελία: ${product.name}`;
       const body = `Γεια σας,\n\nΘα ήθελα να παραγγείλω το εξής προϊόν:\n\nΠροϊόν: ${product.name}\nΤιμή: ${product.price}\nΠοσότητα: ${quantity}\n\nΠαρακαλώ επικοινωνήστε μαζί μου για περαιτέρω λεπτομέρειες.\n\nΕυχαριστώ!`;
       
-      window.open(`mailto:info@stratisjewels.gr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      window.open(`mailto:stratisfinejewels@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
     } else {
       window.open('tel:+302310123456');
     }

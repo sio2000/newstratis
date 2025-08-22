@@ -98,14 +98,24 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gold" />
-                <span className="text-white/80">+30 2310 123 456</span>
+                <a 
+                  href="tel:+302310123456"
+                  className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
+                >
+                  +30 2310 123 456
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gold" />
-                <span className="text-white/80">info@aurajewelry.gr</span>
+                <a 
+                  href="mailto:stratisfinejewels@gmail.com"
+                  className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
+                >
+                  stratisfinejewels@gmail.com
+                </a>
               </div>
               <div className="text-white/80">
-                <p>Θεσσαλονίκη</p>
+                <p>Αρτα, Ηπειρος</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import Map from './Map';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-white mb-1">{t('contact.address')}</h4>
                     <p className="text-white/80">
-                      Θεσσαλονίκη
+                      Αρτα, Ηπειρος
                     </p>
                   </div>
                 </div>
@@ -67,10 +68,12 @@ const Contact: React.FC = () => {
                   <Mail className="h-6 w-6 text-gold mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-white mb-1">Email</h4>
-                    <p className="text-white/80">
-                      info@aurajewelry.gr<br />
-                      sales@aurajewelry.gr
-                    </p>
+                    <a 
+                      href="mailto:stratisfinejewels@gmail.com"
+                      className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
+                    >
+                      stratisfinejewels@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -88,13 +91,9 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="glass-effect rounded-lg p-8 h-64 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-16 w-16 text-gold mx-auto mb-4" />
-                <p className="text-white/60">Διαδραστικός Χάρτης</p>
-                <p className="text-sm text-white/40">Θεσσαλονίκη</p>
-              </div>
+            {/* Interactive Map */}
+            <div className="glass-effect rounded-lg p-8 h-80">
+              <Map className="w-full h-full" />
             </div>
           </div>
 

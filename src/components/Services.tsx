@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Wrench, Settings, Sparkles, Calendar } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import jewelleryImage from '../assets/jewellery.jpg';
+import jewelleryserviceImage from '../assets/jewelleryservice.jpg';
+import millingImage from '../assets/milling.jpg';
 
 const Services: React.FC = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
@@ -11,19 +14,19 @@ const Services: React.FC = () => {
       icon: Wrench,
       title: t('services.repair.title'),
       description: t('services.repair.desc'),
-      image: '/src/assets/jewellery.jpg'
+      image: jewelleryImage
     },
     {
       icon: Settings,
       title: t('services.correction.title'),
       description: t('services.correction.desc'),
-      image: '/src/assets/jewelleryservice.jpg'
+      image: jewelleryserviceImage
     },
     {
       icon: Sparkles,
       title: t('services.polishing.title'),
       description: t('services.polishing.desc'),
-      image: '/src/assets/milling.jpg'
+      image: millingImage
     }
   ];
 
@@ -44,7 +47,7 @@ const Services: React.FC = () => {
           <div className="section-divider"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 [&>*]:!ring-gold [&>*]:!ring-opacity-30">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16 [&>*]:!ring-gold [&>*]:!ring-opacity-30">
           {services.map((service, index) => (
             <div
               key={index}
@@ -55,11 +58,16 @@ const Services: React.FC = () => {
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 md:h-64 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                 <div className="absolute top-4 left-4">
