@@ -26,6 +26,8 @@ const translations = {
     'hero.cta': 'Εξερευνήστε τη Συλλογή',
 
     // Products
+    'products.title': 'Η Συλλογή μας',
+    'products.subtitle': 'Ανακαλύψτε τα εξαιρετικά κοσμήματά μας',
     'products.gold.title': 'Χρυσά Κοσμήματα',
     'products.gold.subtitle': 'Χειροποίητα Αριστουργήματα',
     'products.silver.title': 'Ασημένια Κοσμήματα',
@@ -33,6 +35,19 @@ const translations = {
     'products.watches.title': 'Πολυτελή Ρολόγια',
     'products.watches.subtitle': 'Χρόνος σε Τελειότητα',
     'products.viewCollection': 'Δείτε τη Συλλογή',
+
+    // Filters
+    'filters.title': 'Φίλτρα',
+    'filters.clear': 'Καθαρισμός Φίλτρων',
+    'filters.active': 'Ενεργά Φίλτρα:',
+    'filters.noResults': 'Δεν βρέθηκαν προϊόντα',
+    'filters.noResultsDesc': 'Δοκιμάστε να αλλάξετε τα φίλτρα σας ή να καθαρίσετε όλα τα φίλτρα',
+    'filters.clearAll': 'Καθαρισμός Φίλτρων',
+
+    // Full Collection
+    'fullCollection.title': 'Εξερευνήστε την Πλήρη Συλλογή μας',
+    'fullCollection.description': 'Ανακαλύψτε την εκτεταμένη συλλογή μας από κοσμήματα και πολυτελή ρολόγια με προηγμένες επιλογές αναζήτησης και φιλτραρίσματος.',
+    'fullCollection.button': 'Δείτε την Πλήρη Συλλογή',
 
     // Services
     'services.title': 'Οι Υπηρεσίες μας',
@@ -90,6 +105,8 @@ const translations = {
     'hero.cta': 'Explore Collection',
 
     // Products
+    'products.title': 'Our Collection',
+    'products.subtitle': 'Discover Our Exquisite Pieces',
     'products.gold.title': 'Gold Jewelry',
     'products.gold.subtitle': 'Handcrafted Masterpieces',
     'products.silver.title': 'Silver Jewelry',
@@ -97,6 +114,19 @@ const translations = {
     'products.watches.title': 'Luxury Watches',
     'products.watches.subtitle': 'Time Perfected',
     'products.viewCollection': 'View Collection',
+
+    // Filters
+    'filters.title': 'Filters',
+    'filters.clear': 'Clear Filters',
+    'filters.active': 'Active Filters:',
+    'filters.noResults': 'No products found',
+    'filters.noResultsDesc': 'Try changing your filters or clearing all filters',
+    'filters.clearAll': 'Clear Filters',
+
+    // Full Collection
+    'fullCollection.title': 'Explore Our Full Collection',
+    'fullCollection.description': 'Discover our extensive collection of jewelry and luxury timepieces with advanced search and filtering options.',
+    'fullCollection.button': 'View Full Collection',
 
     // Services
     'services.title': 'Our Services',

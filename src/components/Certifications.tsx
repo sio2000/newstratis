@@ -30,7 +30,7 @@ const Certifications: React.FC = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-luxury-gradient">
+    <section id="certifications" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">

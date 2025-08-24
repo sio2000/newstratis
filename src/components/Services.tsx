@@ -7,7 +7,14 @@ import millingImage from '../assets/milling.jpg';
 
 const Services: React.FC = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
-  const { t } = useLanguage();
+  const [bookingData, setBookingData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    description: ''
+  });
+  const { t, language } = useLanguage();
 
   const services = [
     {
@@ -32,12 +39,41 @@ const Services: React.FC = () => {
 
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Το ραντεβού σας έχει καταγραφεί! Θα επικοινωνήσουμε μαζί σας σύντομα.');
-    setShowBookingForm(false);
+    
+    // Create mailto link with booking data
+    const subject = encodeURIComponent('Νέο Ραντεβού - Επισκευή Κοσμημάτων');
+    const body = encodeURIComponent(`
+Όνομα: ${bookingData.name}
+Email: ${bookingData.email}
+Τηλέφωνο: ${bookingData.phone}
+Υπηρεσία: ${bookingData.service}
+Περιγραφή: ${bookingData.description}
+
+Αυτό είναι ένα αίτημα για ραντεβού από την ιστοσελίδα.
+    `);
+    
+    const mailtoLink = `mailto:stratisfinejewels@gmail.com?subject=${subject}&body=${body}`;
+    
+    try {
+      // Open default email client
+      window.open(mailtoLink);
+      
+      // Reset form and close modal without showing message
+      setBookingData({ name: '', email: '', phone: '', service: '', description: '' });
+      setShowBookingForm(false);
+    } catch (error) {
+      // Fallback: copy email to clipboard and show instructions
+      navigator.clipboard.writeText('stratisfinejewels@gmail.com');
+      alert(`Το email μας αντιγράφηκε στο clipboard: stratisfinejewels@gmail.com\n\nΠαρακαλώ στείλτε το αίτημά σας για ραντεβού με τα εξής στοιχεία:\n\nΌνομα: ${bookingData.name}\nEmail: ${bookingData.email}\nΤηλέφωνο: ${bookingData.phone}\nΥπηρεσία: ${bookingData.service}\nΠεριγραφή: ${bookingData.description}`);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
   };
 
   return (
-    <section id="services" className="py-20 bg-black">
+    <section id="services" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">
@@ -143,21 +179,30 @@ const Services: React.FC = () => {
                   type="text"
                   placeholder="Όνομα"
                   required
+                  name="name"
+                  value={bookingData.name}
+                  onChange={handleChange}
                   className="w-full luxury-input rounded-lg"
                 />
                 <input
                   type="email"
                   placeholder="Email"
                   required
+                  name="email"
+                  value={bookingData.email}
+                  onChange={handleChange}
                   className="w-full luxury-input rounded-lg"
                 />
                 <input
                   type="tel"
                   placeholder="Τηλέφωνο"
                   required
+                  name="phone"
+                  value={bookingData.phone}
+                  onChange={handleChange}
                   className="w-full luxury-input rounded-lg"
                 />
-                <select required className="w-full luxury-input rounded-lg">
+                <select required name="service" value={bookingData.service} onChange={handleChange} className="w-full luxury-input rounded-lg">
                   <option value="">Επιλέξτε Υπηρεσία</option>
                   <option value="repair">Επισκευή Κοσμημάτων</option>
                   <option value="correction">Διορθώσεις</option>
@@ -166,6 +211,9 @@ const Services: React.FC = () => {
                 <textarea
                   placeholder="Περιγραφή"
                   rows={3}
+                  name="description"
+                  value={bookingData.description}
+                  onChange={handleChange}
                   className="w-full luxury-input rounded-lg resize-none"
                 ></textarea>
                 <div className="flex space-x-4">

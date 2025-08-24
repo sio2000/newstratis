@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile Responsiveness Improvements */
+@media (max-width: 640px) {
+  /* Better mobile typography scaling */
+  .text-5xl { font-size: 2.5rem !important; }
+  .text-7xl { font-size: 3.5rem !important; }
+  .text-8xl { font-size: 4rem !important; }
+  
+  /* Mobile-optimized spacing */
+  .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .py-16 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  
+  /* Better mobile container padding */
+  .container { padding-left: 1rem !important; padding-right: 1rem !important; }
+}
+
+@media (max-width: 768px) {
+  /* Ensure minimum touch target size */
+  button, a, [role="button"] { 
+    min-height: 44px !important; 
+    min-width: 44px !important; 
+  }
+  
+  /* Mobile-optimized form inputs */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+  
+  /* Better mobile spacing */
+  .space-y-6 > * + * { margin-top: 1rem !important; }
+  .space-y-8 > * + * { margin-top: 1.5rem !important; }
+}
+
 /* Leaflet Map Styles - Responsive */
 .leaflet-container {
   font-family: inherit;

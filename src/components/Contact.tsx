@@ -8,15 +8,40 @@ const Contact: React.FC = () => {
     name: '',
     email: '',
     phone: '',
+    subject: '',
     message: ''
   });
 
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Το μήνυμά σας στάλθηκε! Θα επικοινωνήσουμε μαζί σας σύντομα.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject || 'Νέο Μήνυμα από την Ιστοσελίδα');
+    const body = encodeURIComponent(`
+Όνομα: ${formData.name}
+Email: ${formData.email}
+Τηλέφωνο: ${formData.phone}
+Θέμα: ${formData.subject || 'Δεν έχει καθοριστεί'}
+
+Μήνυμα:
+${formData.message}
+    `);
+    
+    const mailtoLink = `mailto:stratisfinejewels@gmail.com?subject=${subject}&body=${body}`;
+    
+    try {
+      // Open default email client
+      window.open(mailtoLink);
+      
+      // Reset form without showing message
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (error) {
+      // Fallback: copy email to clipboard and show instructions
+      navigator.clipboard.writeText('stratisfinejewels@gmail.com');
+      alert(`Το email μας αντιγράφηκε στο clipboard: stratisfinejewels@gmail.com\n\nΠαρακαλώ στείλτε το μήνυμά σας με τα εξής στοιχεία:\n\nΌνομα: ${formData.name}\nEmail: ${formData.email}\nΤηλέφωνο: ${formData.phone}\nΘέμα: ${formData.subject || 'Δεν έχει καθοριστεί'}\n\nΜήνυμα:\n${formData.message}`);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,7 +49,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">
@@ -135,6 +160,17 @@ const Contact: React.FC = () => {
                     name="phone"
                     placeholder={t('contact.phone')}
                     value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full luxury-input rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder={language === 'en' ? 'Subject (Optional)' : 'Θέμα (Προαιρετικό)'}
+                    value={formData.subject}
                     onChange={handleChange}
                     className="w-full luxury-input rounded-lg"
                   />

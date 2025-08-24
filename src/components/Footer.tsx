@@ -1,17 +1,12 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigation } from '../contexts/NavigationContext';
 import logo from '../assets/Logo.png';
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const { scrollToTop, navigateToSection } = useNavigation();
 
   return (
     <footer className="bg-luxury-gradient border-t border-gold/20">
@@ -19,7 +14,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={scrollToTop}>
               <img src={logo} alt="Stratis Fine Jewels" className="h-20 w-20 object-contain" />
               <div>
                 <h3 className="text-2xl font-serif font-bold text-gold">Stratis Fine Jewels</h3>
@@ -49,27 +44,27 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a onClick={() => scrollToSection('hero')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={scrollToTop} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.home')}
                 </a>
               </li>
               <li>
-                <a onClick={() => scrollToSection('gold')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => navigateToSection('gold')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.gold')}
                 </a>
               </li>
               <li>
-                <a onClick={() => scrollToSection('silver')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => navigateToSection('silver')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.silver')}
                 </a>
               </li>
               <li>
-                <a onClick={() => scrollToSection('watches')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => navigateToSection('watches')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.watches')}
                 </a>
               </li>
               <li>
-                <a onClick={() => scrollToSection('services')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => navigateToSection('services')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.services')}
                 </a>
               </li>
@@ -99,10 +94,10 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gold" />
                 <a 
-                  href="tel:+302310123456"
+                  href="tel:+302681022345"
                   className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
                 >
-                  +30 2310 123 456
+                  +30 26810 22345
                 </a>
               </div>
               <div className="flex items-center space-x-3">

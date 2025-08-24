@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigation } from '../contexts/NavigationContext';
+import { useFilters } from '../contexts/FilterContext';
 import logo from '../assets/Logo.png';
 
 const Header: React.FC = () => {
+  const { language, setLanguage, t } = useLanguage();
+  const { navigateToSection, scrollToTop } = useNavigation();
+  const { setCategory, setSubcategory } = useFilters();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,21 +22,62 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('.dropdown-container')) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleNavClick = (sectionId: string) => {
+    navigateToSection(sectionId);
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleCategoryClick = (category: string) => {
+    setCategory(category);
+    setSubcategory(null);
+    navigateToSection('product-gallery');
     setIsMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  const handleSubcategoryClick = (category: string, subcategory: string) => {
+    setCategory(category);
+    setSubcategory(subcategory);
+    navigateToSection('product-gallery');
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
   };
 
   const toggleLanguage = () => {
     setLanguage(language === 'el' ? 'en' : 'el');
+  };
+
+  const toggleDropdown = (dropdown: string) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  };
+
+  const subcategories = [
+    { id: 'rings', labelEn: 'Rings', labelGr: 'Δαχτυλίδια' },
+    { id: 'necklaces', labelEn: 'Necklaces', labelGr: 'Περιδέραια' },
+    { id: 'earrings', labelEn: 'Earrings', labelGr: 'Σκουλαρίκια' },
+    { id: 'bracelets', labelEn: 'Bracelets', labelGr: 'Βραχιόλια' }
+  ];
+
+  // Get category labels
+  const getCategoryLabel = (category: string) => {
+    if (language === 'en') {
+      return category === 'gold' ? 'All Gold Jewelry' : 'All Silver Jewelry';
+    } else {
+      return category === 'gold' ? 'Όλα τα Χρυσά Κοσμήματα' : 'Όλα τα Ασημένια Κοσμήματα';
+    }
   };
 
   return (
@@ -51,22 +97,91 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <a onClick={() => scrollToSection('gold')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
-              {t('nav.gold')}
-            </a>
-            <a onClick={() => scrollToSection('silver')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
-              {t('nav.silver')}
-            </a>
-            <a onClick={() => scrollToSection('watches')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            {/* Gold Dropdown */}
+            <div className="relative group dropdown-container">
+              <button
+                onClick={() => toggleDropdown('gold')}
+                className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
+              >
+                <span>{t('nav.gold')}</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'gold' ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Gold Dropdown Menu */}
+              {activeDropdown === 'gold' && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
+                  <div className="py-2">
+                    <button
+                      onClick={() => handleCategoryClick('gold')}
+                      className="w-full text-left px-4 py-3 text-gold hover:bg-gold/10 transition-all duration-200 font-medium border-b border-gold/20"
+                    >
+                      {getCategoryLabel('gold')}
+                    </button>
+                    {subcategories.map((sub) => (
+                      <button
+                        key={sub.id}
+                        onClick={() => handleSubcategoryClick('gold', sub.id)}
+                        className="w-full text-left px-4 py-3 text-white/90 hover:text-gold hover:bg-gold/10 transition-all duration-200"
+                      >
+                        {language === 'en' ? sub.labelEn : sub.labelGr}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Silver Dropdown */}
+            <div className="relative group dropdown-container">
+              <button
+                onClick={() => toggleDropdown('silver')}
+                className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
+              >
+                <span>{t('nav.silver')}</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'silver' ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Silver Dropdown Menu */}
+              {activeDropdown === 'silver' && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
+                  <div className="py-2">
+                    <button
+                      onClick={() => handleCategoryClick('silver')}
+                      className="w-full text-left px-4 py-3 text-gold hover:bg-gold/10 transition-all duration-200 font-medium border-b border-gold/20"
+                    >
+                      {getCategoryLabel('silver')}
+                    </button>
+                    {subcategories.map((sub) => (
+                      <button
+                        key={sub.id}
+                        onClick={() => handleSubcategoryClick('silver', sub.id)}
+                        className="w-full text-left px-4 py-3 text-white/90 hover:text-gold hover:bg-gold/10 transition-all duration-200"
+                      >
+                        {language === 'en' ? sub.labelEn : sub.labelGr}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <a onClick={() => {
+              setCategory('watches');
+              setSubcategory(null);
+              navigateToSection('product-gallery');
+            }} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.watches')}
             </a>
-            <a onClick={() => scrollToSection('services')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('services')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.services')}
             </a>
-            <a onClick={() => scrollToSection('certifications')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('custom-jewelry')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+              {language === 'en' ? 'Custom Jewelry' : 'Custom Κοσμήματα'}
+            </a>
+            <a onClick={() => handleNavClick('certifications')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.certifications')}
             </a>
-            <a onClick={() => scrollToSection('contact')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('contact')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.contact')}
             </a>
           </nav>
@@ -94,22 +209,83 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-gold/20">
             <nav className="flex flex-col py-4">
-              <a onClick={() => scrollToSection('gold')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
-                {t('nav.gold')}
-              </a>
-              <a onClick={() => scrollToSection('silver')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
-                {t('nav.silver')}
-              </a>
-              <a onClick={() => scrollToSection('watches')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              {/* Gold Section */}
+              <div className="border-b border-gold/20">
+                <button
+                  onClick={() => toggleDropdown('gold-mobile')}
+                  className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
+                >
+                  <span>{t('nav.gold')}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'gold-mobile' ? 'rotate-180' : ''}`} />
+                </button>
+                {activeDropdown === 'gold-mobile' && (
+                  <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
+                    <button
+                      onClick={() => handleCategoryClick('gold')}
+                      className="w-full text-left px-8 py-3 text-gold font-medium border-b border-gold/20"
+                    >
+                      {getCategoryLabel('gold')}
+                    </button>
+                    {subcategories.map((sub) => (
+                      <button
+                        key={sub.id}
+                        onClick={() => handleSubcategoryClick('gold', sub.id)}
+                        className="w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer"
+                      >
+                        {language === 'en' ? sub.labelEn : sub.labelGr}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Silver Section */}
+              <div className="border-b border-gold/20">
+                <button
+                  onClick={() => toggleDropdown('silver-mobile')}
+                  className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
+                >
+                  <span>{t('nav.silver')}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'silver-mobile' ? 'rotate-180' : ''}`} />
+                </button>
+                {activeDropdown === 'silver-mobile' && (
+                  <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
+                    <button
+                      onClick={() => handleCategoryClick('silver')}
+                      className="w-full text-left px-8 py-3 text-gold font-medium border-b border-gold/20"
+                    >
+                      {getCategoryLabel('silver')}
+                    </button>
+                    {subcategories.map((sub) => (
+                      <button
+                        key={sub.id}
+                        onClick={() => handleSubcategoryClick('silver', sub.id)}
+                        className="w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer"
+                      >
+                        {language === 'en' ? sub.labelEn : sub.labelGr}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <a onClick={() => {
+                setCategory('watches');
+                setSubcategory(null);
+                navigateToSection('product-gallery');
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.watches')}
               </a>
-              <a onClick={() => scrollToSection('services')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => handleNavClick('services')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.services')}
               </a>
-              <a onClick={() => scrollToSection('certifications')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => handleNavClick('custom-jewelry')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+                {language === 'en' ? 'Custom Jewelry' : 'Εξατομικευμένα Κοσμήματα'}
+              </a>
+              <a onClick={() => handleNavClick('certifications')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.certifications')}
               </a>
-              <a onClick={() => scrollToSection('contact')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => handleNavClick('contact')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.contact')}
               </a>
             </nav>

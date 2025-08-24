@@ -53,13 +53,22 @@ const HeroSection = () => {
     // Scroll to appropriate section instead of navigation
     switch (slideId) {
       case 1:
-        document.getElementById('gold')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('product-gallery')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 2:
         document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 3:
-        document.getElementById('watches')?.scrollIntoView({ behavior: 'smooth' });
+        // For watches, go to product gallery and set watches filter
+        document.getElementById('product-gallery')?.scrollIntoView({ behavior: 'smooth' });
+        // Set a small delay to ensure the section is loaded before setting filter
+        setTimeout(() => {
+          // Trigger watches category selection
+          const watchesButton = document.querySelector('[data-category="watches"]') as HTMLButtonElement;
+          if (watchesButton) {
+            watchesButton.click();
+          }
+        }, 500);
         break;
       default:
         document.getElementById('gold')?.scrollIntoView({ behavior: 'smooth' });
@@ -69,7 +78,7 @@ const HeroSection = () => {
   const currentSlideData = heroSlides?.[currentSlide];
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <section id="hero" className="relative h-screen overflow-hidden bg-black">
       {/* Background Image with Parallax */}
       <motion.div
         className="absolute inset-0 z-0"
