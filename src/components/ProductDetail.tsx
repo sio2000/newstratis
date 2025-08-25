@@ -49,10 +49,23 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
         {/* Header */}
         <div className="sticky top-0 bg-black/95 backdrop-blur-md border-b border-gold/20 z-10">
           <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-center">
-              <h1 className="text-xl font-serif font-bold text-gold">
+            <div className="flex items-center justify-between">
+              {/* Back Button - Hidden on mobile, visible on md and up */}
+              <button
+                onClick={onClose}
+                className="hidden md:flex items-center space-x-2 text-gold hover:text-gold-light transition-colors"
+              >
+                <ArrowLeft className="h-5 w-5" />
+                <span>{language === 'en' ? 'Back' : 'Επιστροφή'}</span>
+              </button>
+              
+              {/* Title - Centered on mobile, left-aligned on md and up */}
+              <h1 className="text-xl font-serif font-bold text-gold md:flex-1 md:text-center">
                 {language === 'en' ? product.nameEn || product.name : product.name}
               </h1>
+              
+              {/* Spacer for md and up to maintain layout */}
+              <div className="hidden md:block w-32"></div>
             </div>
           </div>
         </div>
