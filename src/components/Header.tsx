@@ -233,108 +233,136 @@ const Header: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-gold/20 z-50">
             <nav className="flex flex-col py-4">
               {/* Gold Section */}
-              <a onClick={() => {
-                setCategory('gold');
-                setSubcategory(null);
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20">
-                {t('nav.gold')}
-              </a>
-              
-              {/* Gold Subcategories */}
-              <a onClick={() => {
-                setCategory('gold');
-                setSubcategory('rings');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
-              </a>
-              
-              <a onClick={() => {
-                setCategory('gold');
-                setSubcategory('necklaces');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
-              </a>
-              
-              <a onClick={() => {
-                setCategory('gold');
-                setSubcategory('earrings');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
-              </a>
-              
-              <a onClick={() => {
-                setCategory('gold');
-                setSubcategory('bracelets');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
-              </a>
+              <div className="border-b border-gold/20">
+                <button
+                  onClick={() => toggleDropdown('gold-mobile')}
+                  className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
+                >
+                  <span>{t('nav.gold')}</span>
+                  <ChevronDown 
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'gold-mobile' ? 'rotate-180' : ''}`} 
+                  />
+                </button>
+                {activeDropdown === 'gold-mobile' && (
+                  <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
+                    <a onClick={() => {
+                      setCategory('gold');
+                      setSubcategory(null);
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-3 text-gold font-medium border-b border-gold/20">
+                      {getCategoryLabel('gold')}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('gold');
+                      setSubcategory('rings');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('gold');
+                      setSubcategory('necklaces');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('gold');
+                      setSubcategory('earrings');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('gold');
+                      setSubcategory('bracelets');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
+                    </a>
+                  </div>
+                )}
+              </div>
 
               {/* Silver Section */}
-              <a onClick={() => {
-                setCategory('silver');
-                setSubcategory(null);
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20">
-                {t('nav.silver')}
-              </a>
-              
-              {/* Silver Subcategories */}
-              <a onClick={() => {
-                setCategory('silver');
-                setSubcategory('rings');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
-              </a>
-              
-              <a onClick={() => {
-                setCategory('silver');
-                setSubcategory('necklaces');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
-              </a>
-              
-              <a onClick={() => {
-                setCategory('silver');
-                setSubcategory('earrings');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
-              </a>
-              
-              <a onClick={() => {
-                setCategory('silver');
-                setSubcategory('bracelets');
-                navigateToSection('product-gallery');
-                setIsMenuOpen(false);
-                setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
-                {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
-              </a>
+              <div className="border-b border-gold/20">
+                <button
+                  onClick={() => toggleDropdown('silver-mobile')}
+                  className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
+                >
+                  <span>{t('nav.silver')}</span>
+                  <ChevronDown 
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'silver-mobile' ? 'rotate-180' : ''}`} 
+                  />
+                </button>
+                {activeDropdown === 'silver-mobile' && (
+                  <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
+                    <a onClick={() => {
+                      setCategory('silver');
+                      setSubcategory(null);
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-3 text-gold font-medium border-b border-gold/20">
+                      {getCategoryLabel('silver')}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('silver');
+                      setSubcategory('rings');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('silver');
+                      setSubcategory('necklaces');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('silver');
+                      setSubcategory('earrings');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
+                    </a>
+                    
+                    <a onClick={() => {
+                      setCategory('silver');
+                      setSubcategory('bracelets');
+                      navigateToSection('product-gallery');
+                      setIsMenuOpen(false);
+                      setActiveDropdown(null);
+                    }} className="block w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                      {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
+                    </a>
+                  </div>
+                )}
+              </div>
 
               <a onClick={() => {
                 setCategory('watches');
