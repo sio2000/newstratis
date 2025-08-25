@@ -679,11 +679,11 @@ const ProductGallery: React.FC = () => {
     <section id="product-gallery" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="container mx-auto px-4">
         {/* Header with Search */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-2xl lg:text-4xl xl:text-5xl font-serif font-bold mb-3 lg:mb-4 text-gold">
             {filters.category || filters.subcategory ? getFilterDisplayText() : t('products.title')}
           </h2>
-          <p className="text-xl text-white/80 mb-8">
+          <p className="text-lg lg:text-xl text-white/80 mb-6 lg:mb-8">
             {filters.category || filters.subcategory 
               ? `${filteredProducts.length} προϊόντα βρέθηκαν`
               : t('products.subtitle')
@@ -691,33 +691,33 @@ const ProductGallery: React.FC = () => {
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-8">
+          <div className="max-w-2xl mx-auto mb-6 lg:mb-8">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gold" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-4 w-4 lg:h-5 lg:w-5 text-gold" />
               <input
                 type="text"
                 placeholder={language === 'en' ? 'Search products...' : 'Αναζήτηση προϊόντων...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-black/50 border border-gold/30 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 backdrop-blur-md"
+                className="w-full pl-10 lg:pl-12 pr-4 py-3 lg:py-4 bg-black/50 border border-gold/30 rounded-lg lg:rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 backdrop-blur-md text-sm lg:text-base"
               />
             </div>
           </div>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-3 md:gap-4 mb-8">
             {categories.map((category) => (
               <button
                 key={category.id}
                 data-category={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                className={`px-4 md:px-6 py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                   activeCategory === category.id
                     ? 'bg-gold text-black shadow-lg shadow-gold/30'
                     : 'bg-black/30 text-white/80 hover:bg-black/50 hover:text-white border border-gold/20'
                 }`}
               >
-                <span>{category.label}</span>
+                <span className="block truncate">{category.label}</span>
                 <span className="ml-2 px-2 py-1 bg-white/20 rounded-full text-xs">
                   {category.count}
                 </span>
@@ -727,9 +727,9 @@ const ProductGallery: React.FC = () => {
         </div>
 
         {/* Filter Controls */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-16">
-          <div className="mb-8 lg:mb-0">
-            <h3 className="text-2xl font-serif font-bold mb-4 text-gold">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12 lg:mb-16">
+          <div className="mb-6 lg:mb-8 lg:mb-0">
+            <h3 className="text-xl lg:text-2xl font-serif font-bold mb-3 lg:mb-4 text-gold">
               {activeCategory === 'all' 
                 ? (language === 'en' ? 'All Products' : 'Όλα τα Προϊόντα')
                 : activeCategory === 'gold'
@@ -739,7 +739,7 @@ const ProductGallery: React.FC = () => {
                 : (language === 'en' ? 'Luxury Watches' : 'Πολυτελές Ρολόγια')
               }
             </h3>
-            <p className="text-white/70">
+            <p className="text-white/70 text-sm lg:text-base">
               {language === 'en' 
                 ? `Showing ${filteredProducts.length} products`
                 : `Εμφανίζονται ${filteredProducts.length} προϊόντα`
@@ -754,7 +754,7 @@ const ProductGallery: React.FC = () => {
               <div className="relative">
                 <button
                   onClick={() => setShowSorting(!showSorting)}
-                  className="flex items-center space-x-2 px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded-lg transition-colors border border-gold/30"
+                  className="flex items-center space-x-2 px-3 lg:px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded-lg transition-colors border border-gold/30 text-sm lg:text-base"
                 >
                   <span>{language === 'en' ? 'Sorting Options' : 'Επιλογές Ταξινόμησης'}</span>
                   <Filter className="h-4 w-4" />
@@ -830,7 +830,7 @@ const ProductGallery: React.FC = () => {
               {(activeFiltersCount > 0 || activeCategory !== 'all') && (
                 <button
                   onClick={clearFilters}
-                  className="flex items-center space-x-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                  className="flex items-center space-x-2 px-3 lg:px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm lg:text-base"
                 >
                   <X className="h-4 w-4" />
                   <span>{language === 'en' ? 'Clear Filters' : 'Καθαρισμός Φίλτρων'}</span>
@@ -842,19 +842,19 @@ const ProductGallery: React.FC = () => {
 
         {/* Active Filters Display */}
         {(activeFiltersCount > 0 || activeCategory !== 'all') && (
-          <div className="mb-8 p-4 bg-gold/10 border border-gold/30 rounded-lg">
-            <div className="flex items-center space-x-4">
-              <span className="text-gold font-medium">{t('filters.active')}</span>
+          <div className="mb-6 lg:mb-8 p-3 lg:p-4 bg-gold/10 border border-gold/30 rounded-lg">
+            <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+              <span className="text-gold font-medium text-sm lg:text-base">{t('filters.active')}</span>
               <div className="flex flex-wrap gap-2">
                 {activeCategory !== 'all' && (
-                  <span className="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">
+                  <span className="px-2 lg:px-3 py-1 bg-gold/20 text-gold rounded-full text-xs lg:text-sm">
                     {activeCategory === 'gold' ? 'Χρυσά Κοσμήματα' : 
                      activeCategory === 'silver' ? 'Ασημένια Κοσμήματα' : 
                      activeCategory === 'watches' ? 'Πολυτελές Ρολόγια' : activeCategory}
                   </span>
                 )}
                 {filters.subcategory && (
-                  <span className="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">
+                  <span className="px-2 lg:px-3 py-1 bg-gold/20 text-gold rounded-full text-xs lg:text-sm">
                     {filters.subcategory === 'rings' ? 'Δαχτυλίδια' : 
                      filters.subcategory === 'necklaces' ? 'Περιδέραια' :
                      filters.subcategory === 'earrings' ? 'Σκουλαρίκια' :
@@ -869,16 +869,16 @@ const ProductGallery: React.FC = () => {
 
         {/* Products Grid */}
         {currentProducts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 mb-16">
             {currentProducts.map((product, index) => (
               <div
                 key={product.id}
-                className="product-card rounded-lg p-6 group cursor-pointer transform hover:scale-105 transition-all duration-300"
+                className="product-card rounded-lg p-4 lg:p-6 group cursor-pointer transform hover:scale-105 transition-all duration-300"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => setSelectedProduct(product)}
               >
                 {/* Product Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 lg:h-64 overflow-hidden">
                   <img
                     src={product.image}
                     alt={language === 'en' ? product.nameEn || product.name : product.name}
@@ -887,46 +887,46 @@ const ProductGallery: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   
                   {/* Action Buttons */}
-                  <div className="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="p-2 bg-gold/20 backdrop-blur-md rounded-full text-gold hover:bg-gold/30 transition-colors">
-                      <Heart className="h-4 w-4" />
+                  <div className="absolute top-3 lg:top-4 right-3 lg:right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button className="p-1.5 lg:p-2 bg-gold/20 backdrop-blur-md rounded-full text-gold hover:bg-gold/30 transition-colors">
+                      <Heart className="h-3 w-3 lg:h-4 lg:w-4" />
                     </button>
-                    <button className="p-2 bg-gold/20 backdrop-blur-md rounded-full text-gold hover:bg-gold/30 transition-colors">
-                      <ShoppingBag className="h-4 w-4" />
+                    <button className="p-1.5 lg:p-2 bg-gold/20 backdrop-blur-md rounded-full text-gold hover:bg-gold/30 transition-colors">
+                      <ShoppingBag className="h-3 w-3 lg:h-4 lg:w-4" />
                     </button>
                   </div>
 
                   {/* View Details Button */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-3 lg:bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button
                       onClick={() => setSelectedProduct(product)}
-                      className="px-6 py-2 bg-gold text-black font-bold rounded-lg hover:bg-gold-light transition-colors flex items-center space-x-2"
+                      className="px-4 lg:px-6 py-2 bg-gold text-black font-bold rounded-lg hover:bg-gold-light transition-colors flex items-center space-x-2 text-xs lg:text-sm"
                     >
-                      <Eye className="h-4 w-4" />
+                      <Eye className="h-3 w-3 lg:h-4 lg:w-4" />
                       <span>{language === 'en' ? 'View Details' : 'Προβολή Λεπτομερειών'}</span>
                     </button>
                   </div>
                 </div>
                 {/* Product Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-serif font-bold text-gold mb-2">
+                <div className="p-4 lg:p-6">
+                  <h3 className="text-lg lg:text-xl font-serif font-bold text-gold mb-2">
                     {language === 'en' ? product.nameEn || product.name : product.name}
                   </h3>
-                  <p className="text-white/70 text-sm mb-4 line-clamp-2">
+                  <p className="text-white/70 text-xs lg:text-sm mb-3 lg:mb-4 line-clamp-2">
                     {language === 'en' ? product.descriptionEn || product.description : product.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-white">{product.price}</span>
+                    <span className="text-xl lg:text-2xl font-bold text-white">{product.price}</span>
                     <div className="flex items-center space-x-1">
                       {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="h-4 w-4 text-gold fill-current" />
+                        <Star key={star} className="h-3 w-3 lg:h-4 lg:w-4 text-gold fill-current" />
                       ))}
                     </div>
                   </div>
                   
                   {/* Product Details */}
-                  <div className="mt-4 pt-4 border-t border-gold/20">
-                    <div className="flex items-center justify-between text-sm">
+                  <div className="mt-3 lg:mt-4 pt-3 lg:pt-4 border-t border-gold/20">
+                    <div className="flex items-center justify-between text-xs lg:text-sm">
                       <span className="text-white/60">
                         {language === 'en' ? product.specifications?.materialEn || product.specifications?.material : product.specifications?.material}
                       </span>
@@ -939,12 +939,12 @@ const ProductGallery: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-serif font-bold text-white mb-4">
+          <div className="text-center py-16 lg:py-20">
+            <div className="text-4xl lg:text-6xl mb-3 lg:mb-4">🔍</div>
+            <h3 className="text-xl lg:text-2xl font-serif font-bold text-white mb-3 lg:mb-4">
               {t('filters.noResults')}
             </h3>
-            <p className="text-white/70 mb-8">
+            <p className="text-white/70 mb-6 lg:mb-8 text-sm lg:text-base px-4">
               {t('filters.noResultsDesc')}
             </p>
             <button
@@ -953,7 +953,7 @@ const ProductGallery: React.FC = () => {
                 setActiveCategory('all');
                 clearFilters();
               }}
-              className="px-6 py-3 bg-gold hover:bg-gold-light text-black rounded-lg transition-colors"
+              className="px-4 lg:px-6 py-2 lg:py-3 bg-gold hover:bg-gold-light text-black rounded-lg transition-colors text-sm lg:text-base"
             >
               {t('filters.clearAll')}
             </button>
@@ -962,22 +962,22 @@ const ProductGallery: React.FC = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center mt-16">
+          <div className="flex justify-center mt-12 lg:mt-16">
             <nav className="flex items-center space-x-2">
               <button
                 onClick={prevPage}
                 disabled={currentPage === 1}
-                className="px-4 py-2 bg-black/30 text-white rounded-lg hover:bg-black/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-3 lg:px-4 py-2 bg-black/30 text-white rounded-lg hover:bg-black/50 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base"
               >
                 {language === 'en' ? 'Previous' : 'Προηγούμενη'}
               </button>
-              <span className="text-white/70">
+              <span className="text-white/70 text-sm lg:text-base">
                 {language === 'en' ? `Page ${currentPage} of ${totalPages}` : `Σελίδα ${currentPage} από ${totalPages}`}
               </span>
               <button
                 onClick={nextPage}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-black/30 text-white rounded-lg hover:bg-black/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-3 lg:px-4 py-2 bg-black/30 text-white rounded-lg hover:bg-black/50 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base"
               >
                 {language === 'en' ? 'Next' : 'Επόμενη'}
               </button>

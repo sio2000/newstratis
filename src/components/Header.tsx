@@ -207,7 +207,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-gold/20">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-gold/20 z-50">
             <nav className="flex flex-col py-4">
               {/* Gold Section */}
               <div className="border-b border-gold/20">
@@ -235,6 +235,12 @@ const Header: React.FC = () => {
                         {language === 'en' ? sub.labelEn : sub.labelGr}
                       </button>
                     ))}
+                    <button
+                      onClick={() => setActiveDropdown(null)}
+                      className="w-full text-left px-8 py-2 text-gold/70 hover:text-gold transition-colors cursor-pointer border-t border-gold/20"
+                    >
+                      ✕ {language === 'en' ? 'Close' : 'Κλείσιμο'}
+                    </button>
                   </div>
                 )}
               </div>
@@ -265,6 +271,12 @@ const Header: React.FC = () => {
                         {language === 'en' ? sub.labelEn : sub.labelGr}
                       </button>
                     ))}
+                    <button
+                      onClick={() => setActiveDropdown(null)}
+                      className="w-full text-left px-8 py-2 text-gold/70 hover:text-gold transition-colors cursor-pointer border-t border-gold/20"
+                    >
+                      ✕ {language === 'en' ? 'Close' : 'Κλείσιμο'}
+                    </button>
                   </div>
                 )}
               </div>

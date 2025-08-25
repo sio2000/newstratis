@@ -49,18 +49,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
         {/* Header */}
         <div className="sticky top-0 bg-black/95 backdrop-blur-md border-b border-gold/20 z-10">
           <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <button
-                onClick={onClose}
-                className="flex items-center space-x-2 text-gold hover:text-gold-light transition-colors"
-              >
-                <ArrowLeft className="h-5 w-5" />
-                <span>{language === 'en' ? 'Back' : 'Επιστροφή'}</span>
-              </button>
+            <div className="flex items-center justify-center">
               <h1 className="text-xl font-serif font-bold text-gold">
                 {language === 'en' ? product.nameEn || product.name : product.name}
               </h1>
-              <div className="w-20"></div>
             </div>
           </div>
         </div>
