@@ -22,6 +22,19 @@ const ProductGallery: React.FC = () => {
 
   const PRODUCTS_PER_PAGE = 12;
 
+  // Close sorting dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('.sorting-dropdown-container')) {
+        setShowSorting(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   // Sync category with filters
   useEffect(() => {
     if (filters.category && filters.category !== activeCategory) {
@@ -751,7 +764,7 @@ const ProductGallery: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center space-x-4">
               {/* Sorting Options Button */}
-              <div className="relative">
+              <div className="relative sorting-dropdown-container">
                 <button
                   onClick={() => setShowSorting(!showSorting)}
                   className="flex items-center space-x-2 px-3 lg:px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded-lg transition-colors border border-gold/30 text-sm lg:text-base"
@@ -762,9 +775,9 @@ const ProductGallery: React.FC = () => {
 
                 {/* Sorting Options Dropdown */}
                 {showSorting && (
-                  <div className="absolute top-full right-0 mt-2 w-64 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
-                    <div className="p-4">
-                      <h4 className="text-gold font-medium mb-3 text-center">
+                  <div className="absolute top-full right-0 mt-2 w-full sm:w-64 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
+                    <div className="p-3 sm:p-4">
+                      <h4 className="text-gold font-medium mb-3 text-center text-sm sm:text-base">
                         {language === 'en' ? 'Sort Options' : 'Επιλογές Ταξινόμησης'}
                       </h4>
                       <div className="space-y-2">
@@ -773,7 +786,7 @@ const ProductGallery: React.FC = () => {
                             setSortBy('default');
                             setShowSorting(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
+                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'default'
                               ? 'bg-gold text-black'
                               : 'text-white hover:bg-gold/20'
@@ -786,7 +799,7 @@ const ProductGallery: React.FC = () => {
                             setSortBy('price-low-high');
                             setShowSorting(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
+                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'price-low-high'
                               ? 'bg-gold text-black'
                               : 'text-white hover:bg-gold/20'
@@ -799,7 +812,7 @@ const ProductGallery: React.FC = () => {
                             setSortBy('price-high-low');
                             setShowSorting(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
+                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'price-high-low'
                               ? 'bg-gold text-black'
                               : 'text-white hover:bg-gold/20'
@@ -812,7 +825,7 @@ const ProductGallery: React.FC = () => {
                             setSortBy('most-recent');
                             setShowSorting(false);
                           }}
-                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
+                          className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'most-recent'
                               ? 'bg-gold text-black'
                               : 'text-white hover:bg-gold/20'
