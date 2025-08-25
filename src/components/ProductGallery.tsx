@@ -705,20 +705,20 @@ const ProductGallery: React.FC = () => {
           </div>
 
           {/* Category Tabs */}
-          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-3 md:gap-4 mb-8">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-2 md:gap-4 mb-8">
             {categories.map((category) => (
               <button
                 key={category.id}
                 data-category={category.id}
                 onClick={() => handleCategoryChange(category.id)}
-                className={`px-4 md:px-6 py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
+                className={`px-3 md:px-6 py-2.5 md:py-3 rounded-full font-medium transition-all duration-300 text-xs md:text-base ${
                   activeCategory === category.id
                     ? 'bg-gold text-black shadow-lg shadow-gold/30'
                     : 'bg-black/30 text-white/80 hover:bg-black/50 hover:text-white border border-gold/20'
                 }`}
               >
-                <span className="block truncate">{category.label}</span>
-                <span className="ml-2 px-2 py-1 bg-white/20 rounded-full text-xs">
+                <span className="block truncate text-center">{category.label}</span>
+                <span className="ml-1 md:ml-2 px-1.5 md:px-2 py-0.5 md:py-1 bg-white/20 rounded-full text-xs">
                   {category.count}
                 </span>
               </button>

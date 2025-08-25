@@ -216,7 +216,9 @@ const Header: React.FC = () => {
                   className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
                 >
                   <span>{t('nav.gold')}</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'gold-mobile' ? 'rotate-180' : ''}`} />
+                  <ChevronDown 
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'gold-mobile' ? 'rotate-180' : ''}`} 
+                  />
                 </button>
                 {activeDropdown === 'gold-mobile' && (
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
@@ -235,12 +237,6 @@ const Header: React.FC = () => {
                         {language === 'en' ? sub.labelEn : sub.labelGr}
                       </button>
                     ))}
-                    <button
-                      onClick={() => setActiveDropdown(null)}
-                      className="w-full text-left px-8 py-2 text-gold/70 hover:text-gold transition-colors cursor-pointer border-t border-gold/20"
-                    >
-                      ✕ {language === 'en' ? 'Close' : 'Κλείσιμο'}
-                    </button>
                   </div>
                 )}
               </div>
@@ -252,7 +248,9 @@ const Header: React.FC = () => {
                   className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
                 >
                   <span>{t('nav.silver')}</span>
-                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'silver-mobile' ? 'rotate-180' : ''}`} />
+                  <ChevronDown 
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'silver-mobile' ? 'rotate-180' : ''}`} 
+                  />
                 </button>
                 {activeDropdown === 'silver-mobile' && (
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
@@ -271,12 +269,6 @@ const Header: React.FC = () => {
                         {language === 'en' ? sub.labelEn : sub.labelGr}
                       </button>
                     ))}
-                    <button
-                      onClick={() => setActiveDropdown(null)}
-                      className="w-full text-left px-8 py-2 text-gold/70 hover:text-gold transition-colors cursor-pointer border-t border-gold/20"
-                    >
-                      ✕ {language === 'en' ? 'Close' : 'Κλείσιμο'}
-                    </button>
                   </div>
                 )}
               </div>
@@ -285,19 +277,37 @@ const Header: React.FC = () => {
                 setCategory('watches');
                 setSubcategory(null);
                 navigateToSection('product-gallery');
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
               }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.watches')}
               </a>
-              <a onClick={() => handleNavClick('services')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => {
+                handleNavClick('services');
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.services')}
               </a>
-              <a onClick={() => handleNavClick('custom-jewelry')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => {
+                handleNavClick('custom-jewelry');
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Custom Jewelry' : 'Εξατομικευμένα Κοσμήματα'}
               </a>
-              <a onClick={() => handleNavClick('certifications')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => {
+                handleNavClick('certifications');
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.certifications')}
               </a>
-              <a onClick={() => handleNavClick('contact')} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
+              <a onClick={() => {
+                handleNavClick('contact');
+                setIsMenuOpen(false);
+                setActiveDropdown(null);
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer">
                 {t('nav.contact')}
               </a>
             </nav>
