@@ -227,7 +227,8 @@ const Header: React.FC = () => {
                 {activeDropdown === 'gold-mobile' && (
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
                     <button
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setCategory('gold');
                         setSubcategory(null);
                         navigateToSection('product-gallery');
@@ -241,7 +242,8 @@ const Header: React.FC = () => {
                     {subcategories.map((sub) => (
                       <button
                         key={sub.id}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           setCategory('gold');
                           setSubcategory(sub.id);
                           navigateToSection('product-gallery');
@@ -271,7 +273,8 @@ const Header: React.FC = () => {
                 {activeDropdown === 'silver-mobile' && (
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
                     <button
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setCategory('silver');
                         setSubcategory(null);
                         navigateToSection('product-gallery');
@@ -285,7 +288,8 @@ const Header: React.FC = () => {
                     {subcategories.map((sub) => (
                       <button
                         key={sub.id}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.stopPropagation();
                           setCategory('silver');
                           setSubcategory(sub.id);
                           navigateToSection('product-gallery');
