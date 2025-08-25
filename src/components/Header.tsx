@@ -60,7 +60,10 @@ const Header: React.FC = () => {
     setLanguage(language === 'el' ? 'en' : 'el');
   };
 
-  const toggleDropdown = (dropdown: string) => {
+  const toggleDropdown = (dropdown: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
     if (activeDropdown === dropdown) {
       setActiveDropdown(null);
     } else {
@@ -104,7 +107,7 @@ const Header: React.FC = () => {
             {/* Gold Dropdown */}
             <div className="relative group dropdown-container">
               <button
-                onClick={() => toggleDropdown('gold')}
+                onClick={(e) => toggleDropdown('gold', e)}
                 className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
               >
                 <span>{t('nav.gold')}</span>
@@ -116,7 +119,11 @@ const Header: React.FC = () => {
                 <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
                   <div className="py-2">
                     <button
-                      onClick={() => handleCategoryClick('gold')}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleCategoryClick('gold');
+                      }}
                       className="w-full text-left px-4 py-3 text-gold hover:bg-gold/10 transition-all duration-200 font-medium border-b border-gold/20"
                     >
                       {getCategoryLabel('gold')}
@@ -124,7 +131,11 @@ const Header: React.FC = () => {
                     {subcategories.map((sub) => (
                       <button
                         key={sub.id}
-                        onClick={() => handleSubcategoryClick('gold', sub.id)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleSubcategoryClick('gold', sub.id);
+                        }}
                         className="w-full text-left px-4 py-3 text-white/90 hover:text-gold hover:bg-gold/10 transition-all duration-200"
                       >
                         {language === 'en' ? sub.labelEn : sub.labelGr}
@@ -138,7 +149,7 @@ const Header: React.FC = () => {
             {/* Silver Dropdown */}
             <div className="relative group dropdown-container">
               <button
-                onClick={() => toggleDropdown('silver')}
+                onClick={(e) => toggleDropdown('silver', e)}
                 className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
               >
                 <span>{t('nav.silver')}</span>
@@ -150,7 +161,11 @@ const Header: React.FC = () => {
                 <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
                   <div className="py-2">
                     <button
-                      onClick={() => handleCategoryClick('silver')}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleCategoryClick('silver');
+                      }}
                       className="w-full text-left px-4 py-3 text-gold hover:bg-gold/10 transition-all duration-200 font-medium border-b border-gold/20"
                     >
                       {getCategoryLabel('silver')}
@@ -158,7 +173,11 @@ const Header: React.FC = () => {
                     {subcategories.map((sub) => (
                       <button
                         key={sub.id}
-                        onClick={() => handleSubcategoryClick('silver', sub.id)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleSubcategoryClick('silver', sub.id);
+                        }}
                         className="w-full text-left px-4 py-3 text-white/90 hover:text-gold hover:bg-gold/10 transition-all duration-200"
                       >
                         {language === 'en' ? sub.labelEn : sub.labelGr}
@@ -216,7 +235,7 @@ const Header: React.FC = () => {
               {/* Gold Section */}
               <div className="border-b border-gold/20">
                 <button
-                  onClick={() => toggleDropdown('gold-mobile')}
+                  onClick={(e) => toggleDropdown('gold-mobile', e)}
                   className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
                 >
                   <span>{t('nav.gold')}</span>
@@ -228,6 +247,7 @@ const Header: React.FC = () => {
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
                     <button
                       onClick={(e) => {
+                        e.preventDefault();
                         e.stopPropagation();
                         setCategory('gold');
                         setSubcategory(null);
@@ -243,6 +263,7 @@ const Header: React.FC = () => {
                       <button
                         key={sub.id}
                         onClick={(e) => {
+                          e.preventDefault();
                           e.stopPropagation();
                           setCategory('gold');
                           setSubcategory(sub.id);
@@ -262,7 +283,7 @@ const Header: React.FC = () => {
               {/* Silver Section */}
               <div className="border-b border-gold/20">
                 <button
-                  onClick={() => toggleDropdown('silver-mobile')}
+                  onClick={(e) => toggleDropdown('silver-mobile', e)}
                   className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer flex items-center justify-between"
                 >
                   <span>{t('nav.silver')}</span>
@@ -274,6 +295,7 @@ const Header: React.FC = () => {
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
                     <button
                       onClick={(e) => {
+                        e.preventDefault();
                         e.stopPropagation();
                         setCategory('silver');
                         setSubcategory(null);
@@ -289,6 +311,7 @@ const Header: React.FC = () => {
                       <button
                         key={sub.id}
                         onClick={(e) => {
+                          e.preventDefault();
                           e.stopPropagation();
                           setCategory('silver');
                           setSubcategory(sub.id);
