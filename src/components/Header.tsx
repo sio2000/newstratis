@@ -230,8 +230,8 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-black/98 backdrop-blur-md border-t-2 border-gold/30 shadow-2xl shadow-gold/20 z-50 max-h-screen overflow-y-auto">
-            <nav className="flex flex-col py-6">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-black border-t border-gold/20 z-50 max-h-screen overflow-y-auto">
+            <nav className="flex flex-col py-4">
               {/* Gold Section */}
               <a onClick={() => {
                 setCategory('gold');
@@ -239,7 +239,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.gold')}
               </a>
               
@@ -250,7 +250,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
               </a>
               
@@ -260,7 +260,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
               </a>
               
@@ -270,7 +270,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
               </a>
               
@@ -280,7 +280,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
               </a>
 
@@ -291,7 +291,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.silver')}
               </a>
               
@@ -302,7 +302,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
               </a>
               
@@ -312,7 +312,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
               </a>
               
@@ -322,7 +322,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
               </a>
               
@@ -332,7 +332,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-10 py-3 text-white/90 hover:text-gold transition-all duration-300 cursor-pointer hover:bg-gold/5 border-l-2 border-transparent hover:border-l-gold/30 text-base">
+              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
               </a>
 
@@ -342,35 +342,35 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.watches')}
               </a>
               <a onClick={() => {
                 handleNavClick('services');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.services')}
               </a>
               <a onClick={() => {
                 handleNavClick('custom-jewelry');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {language === 'en' ? 'Custom Jewelry' : 'Εξατομικευμένα Κοσμήματα'}
               </a>
               <a onClick={() => {
                 handleNavClick('certifications');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.certifications')}
               </a>
               <a onClick={() => {
                 handleNavClick('contact');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-6 py-4 text-white hover:text-gold transition-all duration-300 cursor-pointer border-b-2 border-gold/30 hover:border-gold/50 hover:bg-gold/5 font-medium text-lg">
+              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.contact')}
               </a>
             </nav>
