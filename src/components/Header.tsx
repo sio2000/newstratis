@@ -230,8 +230,8 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-black border-t border-gold/20 z-50 max-h-screen overflow-y-auto">
-            <nav className="flex flex-col py-4">
+          <div className="lg:hidden fixed inset-0 top-20 bg-black z-50 overflow-y-auto" style={{ height: 'calc(100vh - 5rem)' }}>
+            <nav className="flex flex-col py-4 pb-20">
               {/* Gold Section */}
               <a onClick={() => {
                 setCategory('gold');
