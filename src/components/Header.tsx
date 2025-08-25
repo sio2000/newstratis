@@ -227,7 +227,13 @@ const Header: React.FC = () => {
                 {activeDropdown === 'gold-mobile' && (
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
                     <button
-                      onClick={() => handleCategoryClick('gold')}
+                      onClick={() => {
+                        setCategory('gold');
+                        setSubcategory(null);
+                        navigateToSection('product-gallery');
+                        setIsMenuOpen(false);
+                        setActiveDropdown(null);
+                      }}
                       className="w-full text-left px-8 py-3 text-gold font-medium border-b border-gold/20"
                     >
                       {getCategoryLabel('gold')}
@@ -235,7 +241,13 @@ const Header: React.FC = () => {
                     {subcategories.map((sub) => (
                       <button
                         key={sub.id}
-                        onClick={() => handleSubcategoryClick('gold', sub.id)}
+                        onClick={() => {
+                          setCategory('gold');
+                          setSubcategory(sub.id);
+                          navigateToSection('product-gallery');
+                          setIsMenuOpen(false);
+                          setActiveDropdown(null);
+                        }}
                         className="w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer"
                       >
                         {language === 'en' ? sub.labelEn : sub.labelGr}
@@ -259,7 +271,13 @@ const Header: React.FC = () => {
                 {activeDropdown === 'silver-mobile' && (
                   <div className="bg-black/50 border-l-2 border-gold/30 ml-4">
                     <button
-                      onClick={() => handleCategoryClick('silver')}
+                      onClick={() => {
+                        setCategory('silver');
+                        setSubcategory(null);
+                        navigateToSection('product-gallery');
+                        setIsMenuOpen(false);
+                        setActiveDropdown(null);
+                      }}
                       className="w-full text-left px-8 py-3 text-gold font-medium border-b border-gold/20"
                     >
                       {getCategoryLabel('silver')}
@@ -267,7 +285,13 @@ const Header: React.FC = () => {
                     {subcategories.map((sub) => (
                       <button
                         key={sub.id}
-                        onClick={() => handleSubcategoryClick('silver', sub.id)}
+                        onClick={() => {
+                          setCategory('silver');
+                          setSubcategory(sub.id);
+                          navigateToSection('product-gallery');
+                          setIsMenuOpen(false);
+                          setActiveDropdown(null);
+                        }}
                         className="w-full text-left px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer"
                       >
                         {language === 'en' ? sub.labelEn : sub.labelGr}
