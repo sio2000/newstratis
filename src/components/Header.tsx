@@ -60,10 +60,7 @@ const Header: React.FC = () => {
     setLanguage(language === 'el' ? 'en' : 'el');
   };
 
-  const toggleDropdown = (dropdown: string, e?: React.MouseEvent) => {
-    if (e) {
-      e.stopPropagation();
-    }
+  const toggleDropdown = (dropdown: string) => {
     if (activeDropdown === dropdown) {
       setActiveDropdown(null);
     } else {
@@ -107,7 +104,7 @@ const Header: React.FC = () => {
             {/* Gold Dropdown */}
             <div className="relative group dropdown-container">
               <button
-                onClick={(e) => toggleDropdown('gold', e)}
+                onClick={() => toggleDropdown('gold')}
                 className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
               >
                 <span>{t('nav.gold')}</span>
@@ -149,7 +146,7 @@ const Header: React.FC = () => {
             {/* Silver Dropdown */}
             <div className="relative group dropdown-container">
               <button
-                onClick={(e) => toggleDropdown('silver', e)}
+                onClick={() => toggleDropdown('silver')}
                 className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
               >
                 <span>{t('nav.silver')}</span>
@@ -243,53 +240,23 @@ const Header: React.FC = () => {
               {/* Gold Subcategories - Collapsible */}
               {activeDropdown === 'gold-mobile' && (
                 <>
-                  <a onClick={() => {
-                    setCategory('gold');
-                    setSubcategory(null);
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-gold font-medium border-b border-gold/20">
+                  <a onClick={() => handleCategoryClick('gold')} className="px-8 py-2 text-gold font-medium border-b border-gold/20">
                     {getCategoryLabel('gold')}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('gold');
-                    setSubcategory('rings');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('gold', 'rings')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('gold');
-                    setSubcategory('necklaces');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('gold', 'necklaces')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('gold');
-                    setSubcategory('earrings');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('gold', 'earrings')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('gold');
-                    setSubcategory('bracelets');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('gold', 'bracelets')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
                   </a>
                 </>
@@ -306,53 +273,23 @@ const Header: React.FC = () => {
               {/* Silver Subcategories - Collapsible */}
               {activeDropdown === 'silver-mobile' && (
                 <>
-                  <a onClick={() => {
-                    setCategory('silver');
-                    setSubcategory(null);
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-gold font-medium border-b border-gold/20">
+                  <a onClick={() => handleCategoryClick('silver')} className="px-8 py-2 text-gold font-medium border-b border-gold/20">
                     {getCategoryLabel('silver')}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('silver');
-                    setSubcategory('rings');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('silver', 'rings')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('silver');
-                    setSubcategory('necklaces');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('silver', 'necklaces')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('silver');
-                    setSubcategory('earrings');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('silver', 'earrings')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
                   </a>
                   
-                  <a onClick={() => {
-                    setCategory('silver');
-                    setSubcategory('bracelets');
-                    navigateToSection('product-gallery');
-                    setIsMenuOpen(false);
-                    setActiveDropdown(null);
-                  }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+                  <a onClick={() => handleSubcategoryClick('silver', 'bracelets')} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
                     {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
                   </a>
                 </>
