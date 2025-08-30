@@ -33,9 +33,9 @@ const HeroSection = () => {
     {
       id: 3,
       image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-      titleEn: "Swiss Horological Excellence",
+      titleEn: "Swiss Watch Excellence",
       titleGr: "Ελβετική Ωρολογοποιική Αριστεία",
-      subtitleEn: "Precision timepieces for discerning collectors",
+      subtitleEn: "Precision watches for discerning collectors",
       subtitleGr: "Ακριβή χρονόμετρα για απαιτητικούς συλλέκτες",
       ctaEn: "View Watches",
       ctaGr: "Δείτε Ρολόγια"

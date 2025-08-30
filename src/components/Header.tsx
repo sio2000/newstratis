@@ -260,7 +260,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
               </a>
               
@@ -270,7 +270,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
               </a>
               
@@ -280,7 +280,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
               </a>
 

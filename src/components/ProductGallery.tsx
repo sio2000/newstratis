@@ -410,14 +410,14 @@ const ProductGallery: React.FC = () => {
     watches: [
       {
         id: 10,
-        name: 'Πολυτελές Ρολόι Χρυσό',
-        nameEn: 'Luxury Gold Watch',
+        name: 'Ρολόι Χρυσό',
+        nameEn: 'Gold Watch',
         price: '€8,500',
         image: watch1,
         category: 'watches',
         subcategory: 'watches',
-        description: 'Εξαιρετικό πολυτελές χρυσό ρολόι με ελβετικό μηχανισμό. Συμβολίζει την κομψότητα και την αξιοπιστία.',
-        descriptionEn: 'Exceptional luxury gold watch with Swiss movement. Symbolizes elegance and reliability.',
+        description: 'Εξαιρετικό χρυσό ρολόι με ελβετικό μηχανισμό. Συμβολίζει την κομψότητα και την αξιοπιστία.',
+        descriptionEn: 'Exceptional gold watch with Swiss movement. Symbolizes elegance and reliability.',
         features: [
           '18K χρυσός case',
           'Ελβετικός μηχανισμός',
@@ -443,14 +443,14 @@ const ProductGallery: React.FC = () => {
       },
       {
         id: 11,
-        name: 'Πολυτελές Ρολόι Ασημένιο',
-        nameEn: 'Luxury Silver Watch',
+        name: 'Ρολόι Ασημένιο',
+        nameEn: 'Silver Watch',
         price: '€6,800',
         image: watch2,
         category: 'watches',
         subcategory: 'watches',
-        description: 'Κομψό πολυτελές ασημένιο ρολόι με ελβετικό μηχανισμό. Ιδανικό για τους λάτρεις της κομψότητας.',
-        descriptionEn: 'Elegant luxury silver watch with Swiss movement. Perfect for watch enthusiasts.',
+        description: 'Κομψό ασημένιο ρολόι με ελβετικό μηχανισμό. Ιδανικό για τους λάτρεις της κομψότητας.',
+        descriptionEn: 'Elegant silver watch with Swiss movement. Perfect for watch enthusiasts.',
         features: [
           '925 ασήμι case',
           'Ελβετικός μηχανισμός',
@@ -476,14 +476,14 @@ const ProductGallery: React.FC = () => {
       },
       {
         id: 12,
-        name: 'Πολυτελές Ρολόι Χειροποίητο',
-        nameEn: 'Handmade Luxury Watch',
+        name: 'Ρολόι Χειροποίητο',
+        nameEn: 'Handmade Watch',
         price: '€12,500',
         image: watch3,
         category: 'watches',
         subcategory: 'watches',
-        description: 'Εξαιρετικό χειροποίητο πολυτελές ρολόι με μοναδικό σχέδιο. Κάθε κομμάτι είναι μοναδικό και δημιουργημένο με την υψηλότερη προσοχή.',
-        descriptionEn: 'Exceptional handmade luxury watch with unique design. Each piece is unique and crafted with the highest attention to detail.',
+        description: 'Εξαιρετικό χειροποίητο ρολόι με μοναδικό σχέδιο. Κάθε κομμάτι είναι μοναδικό και δημιουργημένο με την υψηλότερη προσοχή.',
+        descriptionEn: 'Exceptional handmade watch with unique design. Each piece is unique and crafted with the highest attention to detail.',
         features: [
           '18K λευκός χρυσός case',
           'Χειροποίητος ελβετικός μηχανισμός',
@@ -509,14 +509,14 @@ const ProductGallery: React.FC = () => {
       },
       {
         id: 13,
-        name: 'Πολυτελές Ρολόι Vintage',
-        nameEn: 'Vintage Luxury Watch',
+        name: 'Ρολόι Vintage',
+        nameEn: 'Vintage Watch',
         price: '€9,800',
         image: watch1,
         category: 'watches',
         subcategory: 'watches',
-        description: 'Κλασικό vintage πολυτελές ρολόι με ιστορία και χαρακτήρα. Ιδανικό για τους συλλέκτες vintage κοσμημάτων.',
-        descriptionEn: 'Classic vintage luxury watch with history and character. Perfect for vintage collectors.',
+        description: 'Κλασικό vintage ρολόι με ιστορία και χαρακτήρα. Ιδανικό για τους συλλέκτες vintage κοσμημάτων.',
+        descriptionEn: 'Classic vintage watch with history and character. Perfect for vintage collectors.',
         features: [
           '14K χρυσός case',
           'Vintage ελβετικός μηχανισμός',
@@ -542,14 +542,14 @@ const ProductGallery: React.FC = () => {
       },
       {
         id: 14,
-        name: 'Πολυτελές Ρολόι Sport',
-        nameEn: 'Luxury Sport Watch',
+        name: 'Ρολόι Sport',
+        nameEn: 'Sport Watch',
         price: '€7,200',
         image: watch2,
         category: 'watches',
         subcategory: 'watches',
-        description: 'Αθλητικό πολυτελές ρολόι με σύγχρονο design. Ιδανικό για ενεργούς επαγγελματίες που θέλουν κομψότητα και λειτουργικότητα.',
-        descriptionEn: 'Luxury sport watch with modern design. Perfect for active professionals who want elegance and functionality.',
+        description: 'Αθλητικό ρολόι με σύγχρονο design. Ιδανικό για ενεργούς επαγγελματίες που θέλουν κομψότητα και λειτουργικότητα.',
+        descriptionEn: 'Sport watch with modern design. Perfect for active professionals who want elegance and functionality.',
         features: [
           'Τιτάνιο case',
           'Αυτόματος ελβετικός μηχανισμός',
@@ -650,7 +650,7 @@ const ProductGallery: React.FC = () => {
   const getFilterDisplayText = () => {
     const parts = [];
     if (filters.category) {
-      parts.push(filters.category === 'gold' ? 'Χρυσά Κοσμήματα' : filters.category === 'silver' ? 'Ασημένια Κοσμήματα' : 'Πολυτελές Ρολόγια');
+              parts.push(filters.category === 'gold' ? 'Χρυσά Κοσμήματα' : filters.category === 'silver' ? 'Ασημένια Κοσμήματα' : 'Ρολόγια');
     }
     if (filters.subcategory) {
       const subcategoryLabels = {
@@ -669,7 +669,7 @@ const ProductGallery: React.FC = () => {
     { id: 'all', label: language === 'en' ? 'All' : 'Όλα', count: allProducts.length },
     { id: 'gold', label: language === 'en' ? 'Gold Jewelry' : 'Χρυσά Κοσμήματα', count: products.gold.length },
     { id: 'silver', label: language === 'en' ? 'Silver Jewelry' : 'Ασημένια Κοσμήματα', count: products.silver.length },
-    { id: 'watches', label: language === 'en' ? 'Luxury Watches' : 'Πολυτελές Ρολόγια', count: products.watches.length }
+            { id: 'watches', label: language === 'en' ? 'Watches' : 'Ρολόγια', count: products.watches.length }
   ];
 
   const nextPage = () => {
@@ -749,7 +749,7 @@ const ProductGallery: React.FC = () => {
                 ? (language === 'en' ? 'Gold Jewelry' : 'Χρυσά Κοσμήματα')
                 : activeCategory === 'silver'
                 ? (language === 'en' ? 'Silver Jewelry' : 'Ασημένια Κοσμήματα')
-                : (language === 'en' ? 'Luxury Watches' : 'Πολυτελές Ρολόγια')
+                : (language === 'en' ? 'Watches' : 'Ρολόγια')
               }
             </h3>
             <p className="text-gray-600 text-sm lg:text-base">
@@ -863,7 +863,7 @@ const ProductGallery: React.FC = () => {
                   <span className="px-2 lg:px-3 py-1 bg-gold/20 text-gold rounded-full text-xs lg:text-sm">
                     {activeCategory === 'gold' ? 'Χρυσά Κοσμήματα' : 
                      activeCategory === 'silver' ? 'Ασημένια Κοσμήματα' : 
-                     activeCategory === 'watches' ? 'Πολυτελές Ρολόγια' : activeCategory}
+                     activeCategory === 'watches' ? 'Ρολόγια' : activeCategory}
                   </span>
                 )}
                 {filters.subcategory && (

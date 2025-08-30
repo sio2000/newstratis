@@ -14,7 +14,7 @@ const translations = {
     'nav.home': 'Αρχική',
     'nav.gold': 'Χρυσά Κοσμήματα',
     'nav.silver': 'Ασημένια Κοσμήματα',
-    'nav.watches': 'Πολυτελή Ρολόγια',
+    'nav.watches': 'Ρολόγια',
     'nav.services': 'Υπηρεσίες',
     'nav.certifications': 'Πιστοποιήσεις',
     'nav.contact': 'Επικοινωνία',
@@ -22,7 +22,7 @@ const translations = {
     // Hero
     'hero.title': 'Πολυτελή Κοσμήματα & Ρολόγια',
     'hero.subtitle': 'Αποκαλύψτε την Αιώνια Ομορφιά',
-    'hero.description': 'Ανακαλύψτε τη συλλογή μας από εξαιρετικά κοσμήματα και πολυτελή ρολόγια, δημιουργημένα με τη μεγαλύτερη επιμέλεια και πάθος για την τελειότητα.',
+    'hero.description': 'Ανακαλύψτε τη συλλογή μας από εξαιρετικά κοσμήματα και ρολόγια, δημιουργημένα με τη μεγαλύτερη επιμέλεια και πάθος για την τελειότητα.',
     'hero.cta': 'Εξερευνήστε τη Συλλογή',
 
     // Products
@@ -32,7 +32,7 @@ const translations = {
     'products.gold.subtitle': 'Χειροποίητα Αριστουργήματα',
     'products.silver.title': 'Ασημένια Κοσμήματα',
     'products.silver.subtitle': 'Κομψότητα σε Κάθε Λεπτομέρεια',
-    'products.watches.title': 'Πολυτελή Ρολόγια',
+    'products.watches.title': 'Ρολόγια',
     'products.watches.subtitle': 'Χρόνος σε Τελειότητα',
     'products.viewCollection': 'Δείτε τη Συλλογή',
 
@@ -46,7 +46,7 @@ const translations = {
 
     // Full Collection
     'fullCollection.title': 'Εξερευνήστε την Πλήρη Συλλογή μας',
-    'fullCollection.description': 'Ανακαλύψτε την εκτεταμένη συλλογή μας από κοσμήματα και πολυτελή ρολόγια με προηγμένες επιλογές αναζήτησης και φιλτραρίσματος.',
+    'fullCollection.description': 'Ανακαλύψτε την εκτεταμένη συλλογή μας από κοσμήματα και ρολόγια με προηγμένες επιλογές αναζήτησης και φιλτραρίσματος.',
     'fullCollection.button': 'Δείτε την Πλήρη Συλλογή',
 
     // Services
@@ -68,7 +68,7 @@ const translations = {
     'cert.silver.title': 'Εγγύηση Ασημιού',
     'cert.silver.desc': 'Υψηλής ποιότητας ασήμι με εγγύηση αυθεντικότητας',
     'cert.watch.title': 'Εγγύηση Ρολογιών',
-    'cert.watch.desc': 'Επίσημη εγγύηση για όλα τα πολυτελή ρολόγια',
+    'cert.watch.desc': 'Επίσημη εγγύηση για όλα τα ρολόγια',
 
     // Contact
     'contact.title': 'Επικοινωνήστε μαζί μας',
@@ -93,7 +93,7 @@ const translations = {
     'nav.home': 'Home',
     'nav.gold': 'Gold Jewelry',
     'nav.silver': 'Silver Jewelry',
-    'nav.watches': 'Luxury Watches',
+            'nav.watches': 'Watches',
     'nav.services': 'Services',
     'nav.certifications': 'Certifications',
     'nav.contact': 'Contact',
@@ -101,7 +101,7 @@ const translations = {
     // Hero
     'hero.title': 'Luxury Jewelry & Watches',
     'hero.subtitle': 'Discover Timeless Elegance',
-    'hero.description': 'Explore our collection of exquisite jewelry and luxury timepieces, crafted with the utmost care and passion for perfection.',
+            'hero.description': 'Explore our collection of exquisite jewelry and timepieces, crafted with the utmost care and passion for perfection.',
     'hero.cta': 'Explore Collection',
 
     // Products
@@ -111,7 +111,7 @@ const translations = {
     'products.gold.subtitle': 'Handcrafted Masterpieces',
     'products.silver.title': 'Silver Jewelry',
     'products.silver.subtitle': 'Elegance in Every Detail',
-    'products.watches.title': 'Luxury Watches',
+            'products.watches.title': 'Watches',
     'products.watches.subtitle': 'Time Perfected',
     'products.viewCollection': 'View Collection',
 
@@ -125,7 +125,7 @@ const translations = {
 
     // Full Collection
     'fullCollection.title': 'Explore Our Full Collection',
-    'fullCollection.description': 'Discover our extensive collection of jewelry and luxury timepieces with advanced search and filtering options.',
+            'fullCollection.description': 'Discover our extensive collection of jewelry and timepieces with advanced search and filtering options.',
     'fullCollection.button': 'View Full Collection',
 
     // Services
@@ -147,7 +147,7 @@ const translations = {
     'cert.silver.title': 'Silver Guarantee',
     'cert.silver.desc': 'High-quality silver with authenticity guarantee',
     'cert.watch.title': 'Watch Warranty',
-    'cert.watch.desc': 'Official warranty for all luxury timepieces',
+            'cert.watch.desc': 'Official warranty for all timepieces',
 
     // Contact
     'contact.title': 'Contact Us',
