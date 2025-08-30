@@ -138,7 +138,7 @@ const HeroSection = () => {
                     onClick={() => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' })}
                     iconName="BookOpen"
                     iconPosition="left"
-                    className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                    className="border-gold/50 text-gold hover:bg-white/80 hover:border-gold hover:text-gold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     {language === 'en' ? 'Our Heritage' : 'Η Κληρονομιά μας'}
                   </Button>
