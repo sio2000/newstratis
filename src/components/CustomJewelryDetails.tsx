@@ -111,7 +111,7 @@ const CustomJewelryDetails: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <motion.div
@@ -170,9 +170,9 @@ const CustomJewelryDetails: React.FC = () => {
         <div className="mb-20 lg:mb-32 relative">
           {/* Background Elements */}
           <div className="absolute inset-0 opacity-3">
-            <div className="absolute top-20 left-20 w-32 h-32 lg:w-64 lg:h-64 bg-gradient-to-br from-gold/20 to-yellow-400/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-40 h-40 lg:w-80 lg:h-80 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 lg:w-96 lg:h-96 bg-gradient-to-br from-gold/10 to-yellow-400/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-20 w-32 h-32 lg:w-64 lg:h-64 bg-gradient-to-br from-gold/10 to-yellow-400/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-40 h-40 lg:w-80 lg:h-80 bg-gradient-to-br from-amber-400/10 to-orange-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 lg:w-96 lg:h-96 bg-gradient-to-br from-gold/5 to-yellow-400/5 rounded-full blur-3xl"></div>
           </div>
 
           {/* Section Header */}
@@ -200,7 +200,7 @@ const CustomJewelryDetails: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-6 lg:mb-10 leading-tight"
+              className="text-4xl lg:text-7xl xl:text-8xl font-serif font-bold text-gray-800 mb-6 lg:mb-10 leading-tight"
             >
               
             </motion.h3>
@@ -209,7 +209,7 @@ const CustomJewelryDetails: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg lg:text-2xl text-white/90 max-w-4xl lg:max-w-5xl mx-auto leading-relaxed font-light px-4"
+              className="text-lg lg:text-2xl text-gray-700 max-w-4xl lg:max-w-5xl mx-auto leading-relaxed font-light px-4"
             >
               {language === 'en' 
                 ? 'Every masterpiece begins with a vision and evolves through our meticulous process of creation, where tradition meets innovation.'
@@ -241,7 +241,7 @@ const CustomJewelryDetails: React.FC = () => {
                   <div className="relative">
                     {/* Luxury Card Container */}
                     <div className="relative p-1 rounded-2xl lg:rounded-3xl bg-gradient-to-br from-gold/30 via-yellow-400/20 to-amber-500/10 shadow-2xl shadow-gold/30 border border-gold/40 overflow-hidden">
-                      <div className="bg-black/90 backdrop-blur-md rounded-2xl lg:rounded-3xl p-6 lg:p-12 h-full relative">
+                      <div className="bg-white/95 backdrop-blur-md rounded-2xl lg:rounded-3xl p-6 lg:p-12 h-full relative border border-gray-200">
                         {/* Animated Background Elements */}
                         <div className="absolute inset-0 opacity-5">
                           <div className={`absolute top-8 right-8 w-24 h-24 lg:w-48 lg:h-48 bg-gradient-to-br ${step.color} rounded-full blur-3xl animate-pulse`}></div>
@@ -266,11 +266,11 @@ const CustomJewelryDetails: React.FC = () => {
                         
                         {/* Content Body */}
                         <div className="relative z-10 space-y-4 lg:space-y-6 pr-0 lg:pr-12">
-                          <p className="text-white/95 text-lg lg:text-xl font-medium leading-relaxed">
+                          <p className="text-gray-800 text-lg lg:text-xl font-medium leading-relaxed">
                             {step.description}
                           </p>
                           
-                          <p className="text-white/80 leading-relaxed text-base lg:text-lg">
+                          <p className="text-gray-700 leading-relaxed text-base lg:text-lg">
                             {step.details}
                           </p>
                         </div>
@@ -349,7 +349,7 @@ const CustomJewelryDetails: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="glass-effect rounded-xl lg:rounded-2xl p-6 lg:p-8 border border-gold/20 text-center hover:border-gold/40 transition-all duration-300 hover:scale-105 bg-black/60 backdrop-blur-md"
+                className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border border-gold/20 text-center hover:border-gold/40 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 rounded-lg lg:rounded-xl flex items-center justify-center mx-auto mb-4 lg:mb-6 shadow-lg shadow-gold/20">
                   <category.icon className="h-8 w-8 lg:h-10 lg:w-10 text-white" />
@@ -359,7 +359,7 @@ const CustomJewelryDetails: React.FC = () => {
                 </h4>
                 <ul className="space-y-2 lg:space-y-3">
                   {category.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-white/90 text-sm lg:text-base font-medium">
+                    <li key={itemIndex} className="text-gray-700 text-sm lg:text-base font-medium">
                       {item}
                     </li>
                   ))}
@@ -382,7 +382,7 @@ const CustomJewelryDetails: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="glass-effect rounded-xl lg:rounded-2xl p-8 lg:p-10 border border-gold/20 text-center hover:border-gold/40 transition-all duration-300 hover:scale-105 bg-black/60 backdrop-blur-md"
+                className="bg-white rounded-xl lg:rounded-2xl p-8 lg:p-10 border border-gold/20 text-center hover:border-gold/40 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 lg:mb-8 shadow-lg shadow-gold/20">
                   <guarantee.icon className="h-10 w-10 lg:h-12 lg:w-12 text-white" />
@@ -390,7 +390,7 @@ const CustomJewelryDetails: React.FC = () => {
                 <h4 className="text-xl lg:text-2xl font-serif font-bold text-gold mb-4 lg:mb-6">
                   {guarantee.title}
                 </h4>
-                <p className="text-white/90 leading-relaxed text-base lg:text-lg font-medium">
+                <p className="text-gray-700 leading-relaxed text-base lg:text-lg font-medium">
                   {guarantee.description}
                 </p>
               </motion.div>
@@ -405,11 +405,11 @@ const CustomJewelryDetails: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="glass-effect rounded-xl lg:rounded-2xl p-8 lg:p-12 border-2 border-gold/30 bg-gradient-to-br from-black/50 to-gray-900/50">
+          <div className="bg-white rounded-xl lg:rounded-2xl p-8 lg:p-12 border-2 border-gold/30 shadow-xl">
             <h3 className="text-2xl lg:text-3xl xl:text-4xl font-serif font-bold text-gold mb-4 lg:mb-6">
               {language === 'en' ? 'Ready to Start Your Journey?' : 'Έτοιμοι να Ξεκινήσετε το Ταξίδι Σας;'}
             </h3>
-            <p className="text-lg lg:text-xl text-white/80 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">
               {language === 'en'
                 ? 'Contact us today to schedule your personalized consultation and begin creating your dream jewelry piece.'
                 : 'Επικοινωνήστε μαζί μας σήμερα για να κλείσετε την εξατομικευμένη συνάντησή σας και να ξεκινήσετε τη δημιουργία του κοσμήματος των ονείρων σας.'
@@ -419,7 +419,7 @@ const CustomJewelryDetails: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 max-w-4xl mx-auto">
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="flex items-center justify-center space-x-3 text-gold hover:text-gold-light transition-colors cursor-pointer bg-black/30 hover:bg-black/50 px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl border border-gold/30 hover:border-gold/50 hover:scale-105"
+                className="flex items-center justify-center space-x-3 text-gold hover:text-gold-light transition-colors cursor-pointer bg-gray-100 hover:bg-gray-200 px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl border border-gold/30 hover:border-gold/50 hover:scale-105"
               >
                 <Calendar className="h-5 w-5 lg:h-6 lg:w-6" />
                 <span className="font-medium text-sm lg:text-base">
@@ -428,7 +428,7 @@ const CustomJewelryDetails: React.FC = () => {
               </button>
               <button
                 onClick={() => window.open('tel:+302681022345')}
-                className="flex items-center justify-center space-x-3 text-gold hover:text-gold-light transition-colors cursor-pointer bg-black/30 hover:bg-black/50 px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl border border-gold/30 hover:border-gold/50 hover:scale-105"
+                className="flex items-center justify-center space-x-3 text-gold hover:text-gold-light transition-colors cursor-pointer bg-gray-100 hover:bg-gray-200 px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl border border-gold/30 hover:border-gold/50 hover:scale-105"
               >
                 <Phone className="h-5 w-5 lg:h-6 lg:w-6" />
                 <span className="font-medium text-sm lg:text-base">
@@ -437,7 +437,7 @@ const CustomJewelryDetails: React.FC = () => {
               </button>
               <button
                 onClick={() => window.open('mailto:stratisfinejewels@gmail.com')}
-                className="flex items-center justify-center space-x-3 text-gold hover:text-gold-light transition-colors cursor-pointer bg-black/30 hover:bg-black/50 px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl border border-gold/30 hover:border-gold/50 hover:scale-105"
+                className="flex items-center justify-center space-x-3 text-gold hover:text-gold-light transition-colors cursor-pointer bg-gray-100 hover:bg-gray-200 px-4 lg:px-6 py-3 lg:py-4 rounded-lg lg:rounded-xl border border-gold/30 hover:border-gold/50 hover:scale-105"
               >
                 <Mail className="h-5 w-5 lg:h-6 lg:w-6" />
                 <span className="font-medium text-sm lg:text-base">

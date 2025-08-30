@@ -60,7 +60,7 @@ const CustomJewelry: React.FC = () => {
   ];
 
   return (
-    <section id="custom-jewelry" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section id="custom-jewelry" className="py-20 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-20 h-20 lg:w-32 lg:h-32 bg-gold rounded-full blur-3xl"></div>
@@ -87,7 +87,7 @@ const CustomJewelry: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl lg:text-4xl xl:text-6xl font-serif font-bold mb-4 lg:mb-6 text-white"
+            className="text-3xl lg:text-4xl xl:text-6xl font-serif font-bold mb-4 lg:mb-6 text-gray-800"
           >
             {language === 'en' ? 'Custom Jewelry' : 'Custom Κοσμήματα'}
           </motion.h2>
@@ -96,7 +96,7 @@ const CustomJewelry: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed px-4"
           >
             {language === 'en' 
               ? 'Transform your vision into timeless elegance. Our master artisans create bespoke jewelry that tells your unique story.'
@@ -107,8 +107,8 @@ const CustomJewelry: React.FC = () => {
           <div className="section-divider mt-6 lg:mt-8"></div>
         </div>
 
-        {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16">
+        {/* Process Steps - Hidden on mobile, visible on md and up */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-16">
           {processSteps.map((step, index) => (
             <motion.div
               key={index}
@@ -119,15 +119,15 @@ const CustomJewelry: React.FC = () => {
               onClick={() => setSelectedProcess(index)}
             >
               <div className={`bg-gradient-to-br ${step.color} p-1 rounded-xl lg:rounded-2xl transition-all duration-300 group-hover:scale-105`}>
-                <div className="bg-black rounded-xl lg:rounded-2xl p-4 lg:p-6 h-full">
+                <div className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 h-full border border-gray-200">
                   <div className="text-center">
                     <div className={`inline-flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br ${step.color} rounded-full mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <step.icon className="h-6 w-6 lg:h-8 lg:w-8 text-white" />
                     </div>
-                    <h3 className="text-lg lg:text-xl font-serif font-bold text-white mb-2 lg:mb-3">
+                    <h3 className="text-lg lg:text-xl font-serif font-bold text-gray-800 mb-2 lg:mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-white/70 text-xs lg:text-sm leading-relaxed">
+                    <p className="text-gray-600 text-xs lg:text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -156,7 +156,7 @@ const CustomJewelry: React.FC = () => {
               initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="glass-effect rounded-xl lg:rounded-2xl p-6 lg:p-8 border border-gold/20 hover:border-gold/40 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gold/20"
+              className="bg-white rounded-xl lg:rounded-2xl p-6 lg:p-8 border border-gold/20 hover:border-gold/40 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gold/20 shadow-lg"
             >
               <div className="flex items-start space-x-3 lg:space-x-4">
                 <div className="flex-shrink-0">
@@ -168,7 +168,7 @@ const CustomJewelry: React.FC = () => {
                   <h3 className="text-lg lg:text-xl font-serif font-bold text-gold mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-white/80 leading-relaxed text-sm lg:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
                     {feature.description}
                   </p>
                 </div>
@@ -184,11 +184,11 @@ const CustomJewelry: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <div className="glass-effect rounded-xl lg:rounded-2xl p-8 lg:p-12 border-2 border-gold/30 bg-gradient-to-br from-black/50 to-gray-900/50">
+          <div className="bg-white rounded-xl lg:rounded-2xl p-8 lg:p-12 border-2 border-gold/30 shadow-xl">
             <h3 className="text-2xl lg:text-3xl xl:text-4xl font-serif font-bold text-gold mb-4 lg:mb-6">
               {language === 'en' ? 'Ready to Create Your Masterpiece?' : 'Είστε Έτοιμοι να Δημιουργήσετε το Αριστούργημά σας;'}
             </h3>
-            <p className="text-lg lg:text-xl text-white/80 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-2xl mx-auto px-4">
               {language === 'en'
                 ? 'Book a consultation with our design experts and start your journey to a truly unique piece of jewelry.'
                 : 'Κλείστε μια συνάντηση με τους ειδικούς σχεδιασμού μας και ξεκινήστε το ταξίδι σας προς ένα πραγματικά μοναδικό κομμάτι κοσμήματος.'

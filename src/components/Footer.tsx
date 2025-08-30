@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   const { scrollToTop, navigateToSection } = useNavigation();
 
   return (
-    <footer className="bg-luxury-gradient border-t border-gold/20">
+    <footer className="bg-gradient-to-br from-white via-gray-50 to-white border-t border-gold/20">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
@@ -18,10 +18,10 @@ const Footer: React.FC = () => {
               <img src={logo} alt="Stratis Fine Jewels" className="h-20 w-20 object-contain" />
               <div>
                 <h3 className="text-2xl font-serif font-bold text-gold">Stratis Fine Jewels</h3>
-                <p className="text-sm text-white/60">Luxury it's in purest form</p>
+                <p className="text-sm text-gray-600">Luxury it's in purest form</p>
               </div>
             </div>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed">
               {t('footer.aboutText')}
             </p>
             <div className="flex space-x-4">
@@ -44,27 +44,27 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a onClick={scrollToTop} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={scrollToTop} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.home')}
                 </a>
               </li>
               <li>
-                <a onClick={() => navigateToSection('gold')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => document.getElementById('product-gallery')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.gold')}
                 </a>
               </li>
               <li>
-                <a onClick={() => navigateToSection('silver')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => document.getElementById('product-gallery')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.silver')}
                 </a>
               </li>
               <li>
-                <a onClick={() => navigateToSection('watches')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => document.getElementById('product-gallery')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.watches')}
                 </a>
               </li>
               <li>
-                <a onClick={() => navigateToSection('services')} className="text-white/80 hover:text-gold transition-colors cursor-pointer">
+                <a onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
                   {t('nav.services')}
                 </a>
               </li>
@@ -77,11 +77,31 @@ const Footer: React.FC = () => {
               {t('nav.services')}
             </h4>
             <ul className="space-y-3">
-              <li className="text-white/80">Επισκευή Κοσμημάτων</li>
-              <li className="text-white/80">Διορθώσεις & Προσαρμογές</li>
-              <li className="text-white/80">Δωρεάν Γυάλισμα</li>
-              <li className="text-white/80">Πιστοποιήσεις</li>
-              <li className="text-white/80">Συμβουλευτικές Υπηρεσίες</li>
+              <li>
+                <a onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
+                  Επισκευή Κοσμημάτων
+                </a>
+              </li>
+              <li>
+                <a onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
+                  Διορθώσεις & Προσαρμογές
+                </a>
+              </li>
+              <li>
+                <a onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
+                  Δωρεάν Γυάλισμα
+                </a>
+              </li>
+              <li>
+                <a onClick={() => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
+                  Πιστοποιήσεις
+                </a>
+              </li>
+              <li>
+                <a onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-700 hover:text-gold transition-colors cursor-pointer">
+                  Συμβουλευτικές Υπηρεσίες
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -95,7 +115,7 @@ const Footer: React.FC = () => {
                 <Phone className="h-5 w-5 text-gold" />
                 <a 
                   href="tel:+302681022345"
-                  className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
+                  className="text-gray-700 hover:text-gold transition-colors duration-200 cursor-pointer"
                 >
                   +30 26810 22345
                 </a>
@@ -104,12 +124,12 @@ const Footer: React.FC = () => {
                 <Mail className="h-5 w-5 text-gold" />
                 <a 
                   href="mailto:stratisfinejewels@gmail.com"
-                  className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
+                  className="text-gray-700 hover:text-gold transition-colors duration-200 cursor-pointer"
                 >
                   stratisfinejewels@gmail.com
                 </a>
               </div>
-              <div className="text-white/80">
+              <div className="text-gray-700">
                 <p>Αρτα, Ηπειρος</p>
               </div>
             </div>
@@ -119,17 +139,17 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gold/20 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-center md:text-left">
+            <p className="text-gray-500 text-center md:text-left">
               © 2024 Stratis Fine Jewels. {t('footer.rights')}
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-gold transition-colors">
+              <a href="#" className="text-gray-500 hover:text-gold transition-colors">
                 Πολιτική Απορρήτου
               </a>
-              <a href="#" className="text-white/60 hover:text-gold transition-colors">
+              <a href="#" className="text-gray-500 hover:text-gold transition-colors">
                 Όροι Χρήσης
               </a>
-              <a href="#" className="text-white/60 hover:text-gold transition-colors">
+              <a href="#" className="text-gray-500 hover:text-gold transition-colors">
                 Cookies
               </a>
             </div>

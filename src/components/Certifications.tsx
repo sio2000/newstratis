@@ -30,13 +30,13 @@ const Certifications: React.FC = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <section id="certifications" className="py-20 bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">
             {t('cert.title')}
           </h2>
-          <p className="text-xl text-white/80 mb-8">{t('cert.subtitle')}</p>
+          <p className="text-xl text-gray-700 mb-8">{t('cert.subtitle')}</p>
           <div className="section-divider"></div>
         </div>
 
@@ -44,7 +44,7 @@ const Certifications: React.FC = () => {
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="relative glass-effect rounded-lg p-8 text-center hover-glow group"
+              className="relative bg-white rounded-lg p-8 text-center hover-glow group shadow-lg border border-gray-200"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Badge */}
@@ -61,7 +61,7 @@ const Certifications: React.FC = () => {
               <h3 className="text-2xl font-serif font-bold mb-4 text-gold">
                 {cert.title}
               </h3>
-              <p className="text-white/80 text-lg leading-relaxed">
+              <p className="text-gray-700 text-lg leading-relaxed">
                 {cert.description}
               </p>
 
@@ -75,19 +75,19 @@ const Certifications: React.FC = () => {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60">
           <div className="text-center">
             <div className="text-4xl font-bold text-gold mb-2">30+</div>
-            <div className="text-white">Χρόνια Εμπειρίας</div>
+            <div className="text-gray-700">Χρόνια Εμπειρίας</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-gold mb-2">10K+</div>
-            <div className="text-white">Ικανοποιημένοι Πελάτες</div>
+            <div className="text-gray-700">Ικανοποιημένοι Πελάτες</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-gold mb-2">100%</div>
-            <div className="text-white">Εγγύηση Ποιότητας</div>
+            <div className="text-gray-700">Εγγύηση Ποιότητας</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-gold mb-2">24/7</div>
-            <div className="text-white">Υποστήριξη</div>
+            <div className="text-gray-700">Υποστήριξη</div>
           </div>
         </div>
       </div>

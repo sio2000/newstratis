@@ -73,24 +73,24 @@ Email: ${bookingData.email}
   };
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <section id="services" className="py-20 bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">
             {t('services.title')}
           </h2>
-          <p className="text-xl text-white/80 mb-8">{t('services.subtitle')}</p>
+          <p className="text-xl text-gray-700 mb-8">{t('services.subtitle')}</p>
           <div className="section-divider"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16 [&>*]:!ring-gold [&>*]:!ring-opacity-30">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-16">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`glass-effect rounded-lg overflow-hidden hover-glow group ${
+              className={`bg-black rounded-lg overflow-hidden hover-glow group shadow-lg ${
                 service.title === t('services.polishing.title') 
-                  ? 'ring-4 ring-gold ring-opacity-70 shadow-2xl shadow-gold/30 transform hover:scale-105 bg-gradient-to-br from-black via-black to-black border-2 border-gold/40' 
-                  : 'ring-2 ring-gold ring-opacity-60 shadow-lg shadow-gold/30 transform hover:scale-102 bg-gradient-to-br from-black via-black to-black border-2 border-gold/40'
+                  ? 'ring-4 ring-gold ring-opacity-100 shadow-2xl shadow-gold/50 transform hover:scale-105 border-2 border-gold' 
+                  : 'ring-2 ring-gold ring-opacity-100 shadow-lg shadow-gold/50 transform hover:scale-102 border-2 border-gold'
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -121,26 +121,26 @@ Email: ${bookingData.email}
                     </span>
                   )}
                   {service.title === t('services.repair.title') && (
-                    <span className="bg-gradient-to-r from-gold to-gold-light text-white px-3 py-1 rounded-full text-xs font-bold shadow-md border border-gold/30">
+                    <span className="bg-white text-gold px-3 py-1 rounded-full text-xs font-bold shadow-md border border-gold/30">
                       🔧 ΕΠΙΣΚΕΥΗ
                     </span>
                   )}
                   {service.title === t('services.correction.title') && (
-                    <span className="bg-gradient-to-r from-gold to-gold-light text-white px-3 py-1 rounded-full text-xs font-bold shadow-md border border-gold/30">
+                    <span className="bg-white text-gold px-3 py-1 rounded-full text-xs font-bold shadow-md border border-gold/30">
                       ⚙️ ΔΙΟΡΘΩΣΗ
                     </span>
                   )}
                 </div>
-                <p className="text-white/80 text-lg leading-relaxed">
+                <p className="text-white text-lg leading-relaxed">
                   {service.description}
                 </p>
                 {service.title === t('services.polishing.title') && (
-                  <div className="mt-4 p-4 bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20 border-2 border-gold/30 rounded-xl shadow-lg shadow-gold/20">
+                  <div className="mt-4 p-4 bg-white border-2 border-gold/30 rounded-xl shadow-lg shadow-gold/20">
                     <div className="text-center space-y-2">
                       <p className="text-gold text-lg font-bold">
                         ✨ Εξαιρετική Προσφορά ✨
                       </p>
-                      <p className="text-gold/90 text-sm">
+                      <p className="text-gray-800 text-sm">
                         Για τα κοσμήματά σας
                       </p>
                       <div className="flex justify-center space-x-2">
@@ -170,7 +170,7 @@ Email: ${bookingData.email}
         {/* Booking Form Modal */}
         {showBookingForm && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4">
-            <div className="glass-effect rounded-lg p-8 w-full max-w-md">
+            <div className="bg-white rounded-lg p-8 w-full max-w-md shadow-2xl">
               <h3 className="text-2xl font-serif font-bold mb-6 text-gold text-center">
                 Κλείστε Ραντεβού
               </h3>

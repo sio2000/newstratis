@@ -49,20 +49,20 @@ ${formData.message}
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <section id="contact" className="py-20 bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-gold">
             {t('contact.title')}
           </h2>
-          <p className="text-xl text-white/80 mb-8">{t('contact.subtitle')}</p>
+          <p className="text-xl text-gray-700 mb-8">{t('contact.subtitle')}</p>
           <div className="section-divider"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="space-y-8 slide-in-left">
-            <div className="glass-effect rounded-lg p-8">
+            <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
               <h3 className="text-2xl font-serif font-bold mb-6 text-gold">
                 Στοιχεία Επικοινωνίας
               </h3>
@@ -71,8 +71,8 @@ ${formData.message}
                 <div className="flex items-start space-x-4">
                   <MapPin className="h-6 w-6 text-gold mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">{t('contact.address')}</h4>
-                    <p className="text-white/80">
+                    <h4 className="font-semibold text-gray-800 mb-1">{t('contact.address')}</h4>
+                    <p className="text-gray-600">
                       Αρτα, Ηπειρος
                     </p>
                   </div>
@@ -81,8 +81,8 @@ ${formData.message}
                 <div className="flex items-start space-x-4">
                   <Phone className="h-6 w-6 text-gold mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Τηλέφωνο</h4>
-                    <p className="text-white/80">
+                    <h4 className="font-semibold text-gray-800 mb-1">Τηλέφωνο</h4>
+                    <p className="text-gray-600">
                       +30 2310 123 456<br />
                       +30 694 123 4567
                     </p>
@@ -92,10 +92,10 @@ ${formData.message}
                 <div className="flex items-start space-x-4">
                   <Mail className="h-6 w-6 text-gold mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">Email</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">Email</h4>
                     <a 
                       href="mailto:stratisfinejewels@gmail.com"
-                      className="text-white/80 hover:text-gold transition-colors duration-200 cursor-pointer"
+                      className="text-gray-600 hover:text-gold transition-colors duration-200 cursor-pointer"
                     >
                       stratisfinejewels@gmail.com
                     </a>
@@ -105,8 +105,8 @@ ${formData.message}
                 <div className="flex items-start space-x-4">
                   <Clock className="h-6 w-6 text-gold mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-white mb-1">{t('contact.hours')}</h4>
-                    <p className="text-white/80">
+                    <h4 className="font-semibold text-gray-800 mb-1">{t('contact.hours')}</h4>
+                    <p className="text-gray-600">
                       Δευτέρα - Παρασκευή: 9:00 - 20:00<br />
                       Σάββατο: 9:00 - 18:00<br />
                       Κυριακή: Κλειστά
@@ -117,14 +117,14 @@ ${formData.message}
             </div>
 
             {/* Interactive Map */}
-            <div className="glass-effect rounded-lg p-8 h-80">
+            <div className="bg-white rounded-lg p-8 h-80 shadow-lg border border-gray-200">
               <Map className="w-full h-full" />
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="slide-in-right">
-            <div className="glass-effect rounded-lg p-8">
+            <div className="bg-white rounded-lg p-8 shadow-lg border border-gray-200">
               <h3 className="text-2xl font-serif font-bold mb-6 text-gold">
                 Στείλτε μας Μήνυμα
               </h3>

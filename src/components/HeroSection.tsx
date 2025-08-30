@@ -78,7 +78,7 @@ const HeroSection = () => {
   const currentSlideData = heroSlides?.[currentSlide];
 
   return (
-    <section id="hero" className="relative h-screen overflow-hidden bg-black">
+    <section id="hero" className="relative h-screen overflow-hidden bg-white">
       {/* Background Image with Parallax */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -91,8 +91,8 @@ const HeroSection = () => {
           alt="Luxury jewelry hero"
           className="w-full h-full object-cover"
         />
-                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/40 md:from-black/80 md:via-black/40 md:to-transparent"></div>
-         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:from-black/60 md:via-transparent md:to-transparent"></div>
+                 <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-white/40 md:from-white/80 md:via-white/40 md:to-transparent"></div>
+         <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/40 to-transparent md:from-white/60 md:via-transparent md:to-transparent"></div>
       </motion.div>
 
 
@@ -110,12 +110,12 @@ const HeroSection = () => {
                 className="space-y-6"
               >
                 {/* Main Headline */}
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-tight">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-gray-800 leading-tight drop-shadow-lg">
                   {language === 'en' ? currentSlideData?.titleEn : currentSlideData?.titleGr}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-xl lg:text-2xl text-white/90 font-light max-w-2xl leading-relaxed">
+                <p className="text-xl lg:text-2xl text-gray-700 font-light max-w-2xl leading-relaxed drop-shadow-md">
                   {language === 'en' ? currentSlideData?.subtitleEn : currentSlideData?.subtitleGr}
                 </p>
 
@@ -146,19 +146,19 @@ const HeroSection = () => {
 
               {/* Trust Indicators */}
               <div className="hidden md:flex items-center space-x-8 pt-8">
-                <div className="flex items-center space-x-2 text-white/80">
+                <div className="flex items-center space-x-2 text-gray-700">
                   <Icon name="Award" size={20} />
                   <span className="text-sm font-medium">
                     {language === 'en' ? 'Certified Artisans' : 'Πιστοποιημένοι Τεχνίτες'}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2 text-white/80">
+                <div className="flex items-center space-x-2 text-gray-700">
                   <Icon name="Shield" size={20} />
                   <span className="text-sm font-medium">
                     {language === 'en' ? 'Lifetime Warranty' : 'Εγγύηση Ζωής'}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2 text-white/80">
+                <div className="flex items-center space-x-2 text-gray-700">
                   <Icon name="Truck" size={20} />
                   <span className="text-sm font-medium">
                     {language === 'en' ? 'Free Shipping' : 'Δωρεάν Αποστολή'}
@@ -180,7 +180,7 @@ const HeroSection = () => {
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
                   ? 'bg-gold shadow-lg'
-                  : 'bg-white/30 hover:bg-white/50'
+                  : 'bg-gray-400 hover:bg-gray-500'
               }`}
             />
           ))}
@@ -193,7 +193,7 @@ const HeroSection = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="flex flex-col items-center text-white/60">
+        <div className="flex flex-col items-center text-gray-600">
           <Icon name="ChevronDown" size={20} />
         </div>
       </motion.div>

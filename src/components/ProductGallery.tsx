@@ -689,14 +689,14 @@ const ProductGallery: React.FC = () => {
   };
 
   return (
-    <section id="product-gallery" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black">
+    <section id="product-gallery" className="py-20 bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Header with Search */}
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="text-2xl lg:text-4xl xl:text-5xl font-serif font-bold mb-3 lg:mb-4 text-gold">
             {filters.category || filters.subcategory ? getFilterDisplayText() : t('products.title')}
           </h2>
-          <p className="text-lg lg:text-xl text-white/80 mb-6 lg:mb-8">
+          <p className="text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8">
             {filters.category || filters.subcategory 
               ? `${filteredProducts.length} προϊόντα βρέθηκαν`
               : t('products.subtitle')
@@ -712,7 +712,7 @@ const ProductGallery: React.FC = () => {
                 placeholder={language === 'en' ? 'Search products...' : 'Αναζήτηση προϊόντων...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 lg:pl-12 pr-4 py-3 lg:py-4 bg-black/50 border border-gold/30 rounded-lg lg:rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 backdrop-blur-md text-sm lg:text-base"
+                className="w-full pl-10 lg:pl-12 pr-4 py-3 lg:py-4 bg-white/80 border border-gold/30 rounded-lg lg:rounded-xl text-gray-800 placeholder-gray-500 focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 backdrop-blur-md text-sm lg:text-base"
               />
             </div>
           </div>
@@ -727,7 +727,7 @@ const ProductGallery: React.FC = () => {
                 className={`px-3 md:px-6 py-2.5 md:py-3 rounded-full font-medium transition-all duration-300 text-xs md:text-base ${
                   activeCategory === category.id
                     ? 'bg-gold text-black shadow-lg shadow-gold/30'
-                    : 'bg-black/30 text-white/80 hover:bg-black/50 hover:text-white border border-gold/20'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 border border-gold/20'
                 }`}
               >
                 <span className="block truncate text-center">{category.label}</span>
@@ -752,7 +752,7 @@ const ProductGallery: React.FC = () => {
                 : (language === 'en' ? 'Luxury Watches' : 'Πολυτελές Ρολόγια')
               }
             </h3>
-            <p className="text-white/70 text-sm lg:text-base">
+            <p className="text-gray-600 text-sm lg:text-base">
               {language === 'en' 
                 ? `Showing ${filteredProducts.length} products`
                 : `Εμφανίζονται ${filteredProducts.length} προϊόντα`
@@ -775,7 +775,7 @@ const ProductGallery: React.FC = () => {
 
                 {/* Sorting Options Dropdown */}
                 {showSorting && (
-                  <div className="absolute top-full right-0 mt-2 w-full sm:w-64 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
+                  <div className="absolute top-full right-0 mt-2 w-full sm:w-64 bg-white/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
                     <div className="p-3 sm:p-4">
                       <h4 className="text-gold font-medium mb-3 text-center text-sm sm:text-base">
                         {language === 'en' ? 'Sort Options' : 'Επιλογές Ταξινόμησης'}
@@ -789,7 +789,7 @@ const ProductGallery: React.FC = () => {
                           className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'default'
                               ? 'bg-gold text-black'
-                              : 'text-white hover:bg-gold/20'
+                              : 'text-gray-700 hover:bg-gold/20'
                           }`}
                         >
                           {language === 'en' ? 'Default Order' : 'Προεπιλεγμένη Σειρά'}
@@ -802,7 +802,7 @@ const ProductGallery: React.FC = () => {
                           className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'price-low-high'
                               ? 'bg-gold text-black'
-                              : 'text-white hover:bg-gold/20'
+                              : 'text-gray-700 hover:bg-gold/20'
                           }`}
                         >
                           {language === 'en' ? 'Price: Low to High' : 'Τιμή: Χαμηλή προς Υψηλή'}
@@ -815,7 +815,7 @@ const ProductGallery: React.FC = () => {
                           className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'price-high-low'
                               ? 'bg-gold text-black'
-                              : 'text-white hover:bg-gold/20'
+                              : 'text-gray-700 hover:bg-gold/20'
                           }`}
                         >
                           {language === 'en' ? 'Price: High to Low' : 'Τιμή: Υψηλή προς Χαμηλή'}
@@ -828,7 +828,7 @@ const ProductGallery: React.FC = () => {
                           className={`w-full text-left px-3 py-2 rounded-lg transition-colors text-sm sm:text-base ${
                             sortBy === 'most-recent'
                               ? 'bg-gold text-black'
-                              : 'text-white hover:bg-gold/20'
+                              : 'text-gray-700 hover:bg-gold/20'
                           }`}
                         >
                           {language === 'en' ? 'Most Recent' : 'Πιο Πρόσφατα'}
@@ -897,7 +897,7 @@ const ProductGallery: React.FC = () => {
                     alt={language === 'en' ? product.nameEn || product.name : product.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
                   
                   {/* Action Buttons */}
                   <div className="absolute top-3 lg:top-4 right-3 lg:right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -925,11 +925,11 @@ const ProductGallery: React.FC = () => {
                   <h3 className="text-lg lg:text-xl font-serif font-bold text-gold mb-2">
                     {language === 'en' ? product.nameEn || product.name : product.name}
                   </h3>
-                  <p className="text-white/70 text-xs lg:text-sm mb-3 lg:mb-4 line-clamp-2">
+                  <p className="text-gray-600 text-xs lg:text-sm mb-3 lg:mb-4 line-clamp-2">
                     {language === 'en' ? product.descriptionEn || product.description : product.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl lg:text-2xl font-bold text-white">{product.price}</span>
+                    <span className="text-xl lg:text-2xl font-bold text-gray-800">{product.price}</span>
                     <div className="flex items-center space-x-1">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <Star key={star} className="h-3 w-3 lg:h-4 lg:w-4 text-gold fill-current" />
@@ -940,11 +940,11 @@ const ProductGallery: React.FC = () => {
                   {/* Product Details */}
                   <div className="mt-3 lg:mt-4 pt-3 lg:pt-4 border-t border-gold/20">
                     <div className="flex items-center justify-between text-xs lg:text-sm">
-                      <span className="text-white/60">
+                      <span className="text-gray-500">
                         {language === 'en' ? product.specifications?.materialEn || product.specifications?.material : product.specifications?.material}
                       </span>
-                      <span className="text-white/60">·</span>
-                      <span className="text-white/60">{product.specifications?.weight}</span>
+                      <span className="text-gray-500">·</span>
+                      <span className="text-gray-500">{product.specifications?.weight}</span>
                     </div>
                   </div>
                 </div>
@@ -954,10 +954,10 @@ const ProductGallery: React.FC = () => {
         ) : (
           <div className="text-center py-16 lg:py-20">
             <div className="text-4xl lg:text-6xl mb-3 lg:mb-4">🔍</div>
-            <h3 className="text-xl lg:text-2xl font-serif font-bold text-white mb-3 lg:mb-4">
+            <h3 className="text-xl lg:text-2xl font-serif font-bold text-gray-800 mb-3 lg:mb-4">
               {t('filters.noResults')}
             </h3>
-            <p className="text-white/70 mb-6 lg:mb-8 text-sm lg:text-base px-4">
+            <p className="text-gray-600 mb-6 lg:mb-8 text-sm lg:text-base px-4">
               {t('filters.noResultsDesc')}
             </p>
             <button
@@ -980,17 +980,17 @@ const ProductGallery: React.FC = () => {
               <button
                 onClick={prevPage}
                 disabled={currentPage === 1}
-                className="px-3 lg:px-4 py-2 bg-black/30 text-white rounded-lg hover:bg-black/50 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base"
+                className="px-3 lg:px-4 py-2 bg-gold/20 text-gray-800 rounded-lg hover:bg-gold/30 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base border border-gold/30"
               >
                 {language === 'en' ? 'Previous' : 'Προηγούμενη'}
               </button>
-              <span className="text-white/70 text-sm lg:text-base">
+              <span className="text-gray-600 text-sm lg:text-base">
                 {language === 'en' ? `Page ${currentPage} of ${totalPages}` : `Σελίδα ${currentPage} από ${totalPages}`}
               </span>
               <button
                 onClick={nextPage}
                 disabled={currentPage === totalPages}
-                className="px-3 lg:px-4 py-2 bg-black/30 text-white rounded-lg hover:bg-black/50 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base"
+                className="px-3 lg:px-4 py-2 bg-gold/20 text-gray-800 rounded-lg hover:bg-gold/30 disabled:opacity-50 disabled:cursor-not-allowed text-sm lg:text-base border border-gold/30"
               >
                 {language === 'en' ? 'Next' : 'Επόμενη'}
               </button>

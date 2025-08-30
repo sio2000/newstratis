@@ -44,10 +44,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-white/95 backdrop-blur-md z-50 overflow-y-auto">
       <div className="min-h-screen">
         {/* Header */}
-        <div className="sticky top-0 bg-black/95 backdrop-blur-md border-b border-gold/20 z-10">
+        <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gold/20 z-10">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               {/* Back Button - Hidden on mobile, visible on md and up */}
@@ -108,14 +108,14 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                   {language === 'en' ? product.nameEn || product.name : product.name}
                 </h1>
                 <div className="flex items-center space-x-4 mb-6">
-                  <span className="text-3xl font-bold text-white">{product.price}</span>
+                  <span className="text-3xl font-bold text-gray-800">{product.price}</span>
                   <div className="flex items-center space-x-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star key={star} className="h-5 w-5 text-gold fill-current" />
                     ))}
                   </div>
                 </div>
-                <p className="text-white/80 text-lg leading-relaxed">
+                <p className="text-gray-700 text-lg leading-relaxed">
                   {language === 'en' ? product.descriptionEn || product.description : product.description}
                 </p>
               </div>
@@ -127,10 +127,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                 </h3>
                 <ul className="space-y-3">
                   {(language === 'en' ? product.featuresEn || product.features : product.features).map((feature, index) => (
-                    <li key={index} className="flex items-center space-x-3 text-white/80">
-                      <div className="w-2 h-2 bg-gold rounded-full"></div>
-                      <span>{feature}</span>
-                    </li>
+                                      <li key={index} className="flex items-center space-x-3 text-gray-700">
+                    <div className="w-2 h-2 bg-gold rounded-full"></div>
+                    <span>{feature}</span>
+                  </li>
                   ))}
                 </ul>
               </div>
@@ -141,33 +141,33 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                   {language === 'en' ? 'Specifications' : 'Προδιαγραφές'}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-black/20 p-4 rounded-lg">
-                    <span className="text-gold font-medium">
-                      {language === 'en' ? 'Material' : 'Υλικό'}
-                    </span>
-                    <p className="text-white mt-1">
-                      {language === 'en' ? product.specifications?.materialEn || product.specifications?.material : product.specifications?.material}
-                    </p>
-                  </div>
-                  <div className="bg-black/20 p-4 rounded-lg">
+                                     <div className="bg-gray-100 p-4 rounded-lg">
+                     <span className="text-gold font-medium">
+                       {language === 'en' ? 'Material' : 'Υλικό'}
+                     </span>
+                     <p className="text-gray-800 mt-1">
+                       {language === 'en' ? product.specifications?.materialEn || product.specifications?.material : product.specifications?.material}
+                     </p>
+                   </div>
+                  <div className="bg-gray-100 p-4 rounded-lg">
                     <span className="text-gold font-medium">
                       {language === 'en' ? 'Weight' : 'Βάρος'}
                     </span>
-                    <p className="text-white mt-1">{product.specifications?.weight}</p>
+                    <p className="text-gray-800 mt-1">{product.specifications?.weight}</p>
                   </div>
-                  <div className="bg-black/20 p-4 rounded-lg">
+                  <div className="bg-gray-100 p-4 rounded-lg">
                     <span className="text-gold font-medium">
                       {language === 'en' ? 'Dimensions' : 'Διαστάσεις'}
                     </span>
-                    <p className="text-white mt-1">
+                    <p className="text-gray-800 mt-1">
                       {language === 'en' ? product.specifications?.dimensionsEn || product.specifications?.dimensions : product.specifications?.dimensions}
                     </p>
                   </div>
-                  <div className="bg-black/20 p-4 rounded-lg">
+                  <div className="bg-gray-100 p-4 rounded-lg">
                     <span className="text-gold font-medium">
                       {language === 'en' ? 'Certification' : 'Πιστοποίηση'}
                     </span>
-                    <p className="text-white mt-1">{product.specifications?.certification}</p>
+                    <p className="text-gray-800 mt-1">{product.specifications?.certification}</p>
                   </div>
                 </div>
               </div>
@@ -180,20 +180,20 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                 
                 {/* Quantity */}
                 <div className="mb-6">
-                  <label className="block text-white/80 mb-2">
+                  <label className="block text-gray-800 font-medium mb-2">
                     {language === 'en' ? 'Quantity' : 'Ποσότητα'}
                   </label>
                   <div className="flex items-center space-x-4">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="w-10 h-10 bg-gold text-white rounded-lg flex items-center justify-center hover:bg-gold-light transition-colors"
+                      className="w-10 h-10 bg-gold text-black rounded-lg flex items-center justify-center hover:bg-gold-light transition-colors"
                     >
                       -
                     </button>
-                    <span className="text-2xl font-bold text-white w-16 text-center">{quantity}</span>
+                    <span className="text-2xl font-bold text-gray-800 w-16 text-center">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="w-10 h-10 bg-gold text-white rounded-lg flex items-center justify-center hover:bg-gold-light transition-colors"
+                      className="w-10 h-10 bg-gold text-black rounded-lg flex items-center justify-center hover:bg-gold-light transition-colors"
                     >
                       +
                     </button>
@@ -202,7 +202,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
 
                 {/* Order Method */}
                 <div className="mb-6">
-                  <label className="block text-white/80 mb-2">
+                  <label className="block text-gray-800 font-medium mb-2">
                     {language === 'en' ? 'Order Method' : 'Μέθοδος Παραγγελίας'}
                   </label>
                   <div className="flex space-x-4">
@@ -234,7 +234,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                 {/* Order Button */}
                 <button
                   onClick={handleOrder}
-                  className="w-full bg-gradient-to-r from-gold to-gold-light text-white font-bold py-4 rounded-lg hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 flex items-center justify-center space-x-3"
+                  className="w-full bg-gradient-to-r from-gold to-gold-light text-black font-bold py-4 rounded-lg hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 flex items-center justify-center space-x-3"
                 >
                   <ShoppingCart className="h-6 w-6" />
                   <span className="text-lg">
@@ -250,19 +250,19 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
                   <Shield className="h-8 w-8 text-gold mx-auto mb-2" />
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     {language === 'en' ? 'Warranty' : 'Εγγύηση'}
                   </p>
                 </div>
                 <div className="text-center">
                   <Award className="h-8 w-8 text-gold mx-auto mb-2" />
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     {language === 'en' ? 'Quality' : 'Ποιότητα'}
                   </p>
                 </div>
                 <div className="text-center">
                   <Truck className="h-8 w-8 text-gold mx-auto mb-2" />
-                  <p className="text-white/60 text-sm">
+                  <p className="text-gray-500 text-sm">
                     {language === 'en' ? 'Shipping' : 'Αποστολή'}
                   </p>
                 </div>

@@ -89,7 +89,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/95 backdrop-blur-md' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             <img src={logo} alt="Stratis Fine Jewels" className="h-16 w-16 object-contain" />
             <div>
               <h1 className="text-xl font-serif font-bold text-gold">Stratis Fine Jewels</h1>
-              <p className="text-xs text-white/70 -mt-1">Luxury it's in purest form</p>
+              <p className="text-xs text-gray-700 -mt-1">Luxury it's in purest form</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ const Header: React.FC = () => {
             <div className="relative group dropdown-container">
               <button
                 onClick={(e) => toggleDropdown('gold', e)}
-                className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
+                className="flex items-center space-x-1 text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium"
               >
                 <span>{t('nav.gold')}</span>
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'gold' ? 'rotate-180' : ''}`} />
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
               
               {/* Gold Dropdown Menu */}
               {activeDropdown === 'gold' && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
                   <div className="py-2">
                     <button
                       onClick={(e) => {
@@ -136,7 +136,7 @@ const Header: React.FC = () => {
                           e.stopPropagation();
                           handleSubcategoryClick('gold', sub.id);
                         }}
-                        className="w-full text-left px-4 py-3 text-white/90 hover:text-gold hover:bg-gold/10 transition-all duration-200"
+                        className="w-full text-left px-4 py-3 text-gray-700 hover:text-gold hover:bg-gold/10 transition-all duration-200"
                       >
                         {language === 'en' ? sub.labelEn : sub.labelGr}
                       </button>
@@ -150,7 +150,7 @@ const Header: React.FC = () => {
             <div className="relative group dropdown-container">
               <button
                 onClick={(e) => toggleDropdown('silver', e)}
-                className="flex items-center space-x-1 text-white hover:text-gold transition-colors cursor-pointer font-medium"
+                className="flex items-center space-x-1 text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium"
               >
                 <span>{t('nav.silver')}</span>
                 <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === 'silver' ? 'rotate-180' : ''}`} />
@@ -158,7 +158,7 @@ const Header: React.FC = () => {
               
               {/* Silver Dropdown Menu */}
               {activeDropdown === 'silver' && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-md border border-gold/30 rounded-lg shadow-2xl shadow-gold/20 z-50">
                   <div className="py-2">
                     <button
                       onClick={(e) => {
@@ -178,7 +178,7 @@ const Header: React.FC = () => {
                           e.stopPropagation();
                           handleSubcategoryClick('silver', sub.id);
                         }}
-                        className="w-full text-left px-4 py-3 text-white/90 hover:text-gold hover:bg-gold/10 transition-all duration-200"
+                        className="w-full text-left px-4 py-3 text-gray-700 hover:text-gold hover:bg-gold/10 transition-all duration-200"
                       >
                         {language === 'en' ? sub.labelEn : sub.labelGr}
                       </button>
@@ -192,19 +192,19 @@ const Header: React.FC = () => {
               setCategory('watches');
               setSubcategory(null);
               navigateToSection('product-gallery');
-            }} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            }} className="text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.watches')}
             </a>
-            <a onClick={() => handleNavClick('services')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('services')} className="text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.services')}
             </a>
-            <a onClick={() => handleNavClick('custom-jewelry')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('custom-jewelry')} className="text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium">
               {language === 'en' ? 'Custom Jewelry' : 'Custom Κοσμήματα'}
             </a>
-            <a onClick={() => handleNavClick('certifications')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('certifications')} className="text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.certifications')}
             </a>
-            <a onClick={() => handleNavClick('contact')} className="text-white hover:text-gold transition-colors cursor-pointer font-medium">
+            <a onClick={() => handleNavClick('contact')} className="text-gray-800 hover:text-gold transition-colors cursor-pointer font-medium">
               {t('nav.contact')}
             </a>
           </nav>
@@ -221,7 +221,7 @@ const Header: React.FC = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-white hover:text-gold transition-colors"
+              className="lg:hidden text-gray-800 hover:text-gold transition-colors"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -230,7 +230,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-20 bg-black z-50 overflow-y-auto" style={{ height: 'calc(100vh - 5rem)' }}>
+          <div className="lg:hidden fixed inset-0 top-20 bg-white z-50 overflow-y-auto" style={{ height: 'calc(100vh - 5rem)' }}>
             <nav className="flex flex-col py-4 pb-20">
               {/* Gold Section */}
               <a onClick={() => {
@@ -239,7 +239,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.gold')}
               </a>
               
@@ -250,7 +250,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
               </a>
               
@@ -291,7 +291,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.silver')}
               </a>
               
@@ -302,7 +302,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Rings' : 'Δαχτυλίδια'}
               </a>
               
@@ -312,7 +312,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Necklaces' : 'Περιδέραια'}
               </a>
               
@@ -322,7 +322,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-600 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Earrings' : 'Σκουλαρίκια'}
               </a>
               
@@ -332,7 +332,7 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-8 py-2 text-white/80 hover:text-gold transition-colors cursor-pointer">
+              }} className="px-8 py-2 text-gray-800 hover:text-gold transition-colors cursor-pointer">
                 {language === 'en' ? 'Bracelets' : 'Βραχιόλια'}
               </a>
 
@@ -342,35 +342,35 @@ const Header: React.FC = () => {
                 navigateToSection('product-gallery');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.watches')}
               </a>
               <a onClick={() => {
                 handleNavClick('services');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.services')}
               </a>
               <a onClick={() => {
                 handleNavClick('custom-jewelry');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {language === 'en' ? 'Custom Jewelry' : 'Εξατομικευμένα Κοσμήματα'}
               </a>
               <a onClick={() => {
                 handleNavClick('certifications');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.certifications')}
               </a>
               <a onClick={() => {
                 handleNavClick('contact');
                 setIsMenuOpen(false);
                 setActiveDropdown(null);
-              }} className="px-4 py-3 text-white hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
+              }} className="px-4 py-3 text-gray-800 hover:text-gold transition-colors cursor-pointer border-b border-gold/20 font-medium">
                 {t('nav.contact')}
               </a>
             </nav>
